@@ -35,12 +35,19 @@ export default buildConfig({
   }),
   editor: lexicalEditor(),
   plugins: [
-    vercelBlobStorage({
-      // Ativo apenas quando a variável estiver presente (produção no Vercel)
-      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
-      collections: { media: true },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
+    // Só incluímos o plugin quando há token (produção no Vercel com Blob Store).
+    // Passar `enabled: false` não basta: o plugin ainda injeta o componente
+    // VercelBlobClientUploadHandler no admin, que precisa estar no importMap.
+    // Mantê-lo totalmente ausente sem token evita esse acoplamento.
+    ...(process.env.BLOB_READ_WRITE_TOKEN
+      ? [
+          vercelBlobStorage({
+            enabled: true,
+            collections: { media: true },
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+          }),
+        ]
+      : []),
   ],
   sharp,
   secret: process.env.PAYLOAD_SECRET || '',

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getSiteSettings, extractMediaUrl } from '@/lib/api'
 
 export function generateMetadata(): Metadata {
   return {
@@ -43,7 +44,13 @@ const timeline = [
   },
 ]
 
-export default function SobrePage() {
+const FALLBACK_FOTO =
+  'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1000&q=80'
+
+export default async function SobrePage() {
+  const settings = await getSiteSettings()
+  const fotoUrl = extractMediaUrl(settings.sobreFoto) ?? FALLBACK_FOTO
+
   return (
     <>
       {/* Intro: foto + apresentação */}
@@ -105,7 +112,7 @@ export default function SobrePage() {
               aria-hidden="true"
             />
             <Image
-              src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1000&q=80"
+              src={fotoUrl}
               alt="Retrato profissional de Vanessa"
               width={420}
               height={540}

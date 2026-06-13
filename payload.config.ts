@@ -11,6 +11,7 @@ import { Posts } from './src/collections/Posts'
 import { Categories } from './src/collections/Categories'
 import { ContactMessages } from './src/collections/ContactMessages'
 import { Media } from './src/collections/Media'
+import { SiteSettings } from './src/globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,6 +29,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Posts, Categories, ContactMessages, Media],
+  globals: [SiteSettings],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',

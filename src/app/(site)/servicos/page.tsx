@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ServicosCards } from '@/components/servicos/ServicosCards'
+import { getSiteSettings } from '@/lib/api'
 
 export function generateMetadata(): Metadata {
   return {
@@ -33,7 +34,9 @@ const diferenciais = [
   },
 ]
 
-export default function ServicosPage() {
+export default async function ServicosPage() {
+  const settings = await getSiteSettings()
+
   return (
     <>
       {/* Hero */}
@@ -73,7 +76,7 @@ export default function ServicosPage() {
       {/* Cards de serviço */}
       <section className="px-5 md:px-14 pt-14 md:pt-[88px] pb-16 md:pb-24" style={{ background: '#FFFFFF' }}>
         <div className="max-w-[1168px] mx-auto">
-          <ServicosCards />
+          <ServicosCards cmsServices={settings.servicos} />
         </div>
       </section>
 

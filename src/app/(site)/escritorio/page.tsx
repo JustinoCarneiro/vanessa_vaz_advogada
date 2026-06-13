@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getSiteSettings, extractMediaUrl } from '@/lib/api'
 
 export function generateMetadata(): Metadata {
   return {
@@ -65,7 +66,13 @@ const diferenciais = [
   },
 ]
 
-export default function EscritorioPage() {
+const FALLBACK_ESCRITORIO =
+  'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80'
+
+export default async function EscritorioPage() {
+  const settings = await getSiteSettings()
+  const escritorioUrl = extractMediaUrl(settings.escritorioFoto) ?? FALLBACK_ESCRITORIO
+
   return (
     <>
       {/* Hero com foto */}
@@ -195,7 +202,7 @@ export default function EscritorioPage() {
               aria-hidden="true"
             />
             <Image
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80"
+              src={escritorioUrl}
               alt="Detalhe do escritório"
               width={480}
               height={460}

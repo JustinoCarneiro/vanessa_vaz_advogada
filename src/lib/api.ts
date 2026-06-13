@@ -100,3 +100,37 @@ export async function getCategories() {
     { revalidate: 300, tags: ['categories'] }
   )()
 }
+
+// Tipos mínimos para os campos do Global (evita depender do generate:types)
+export type SiteSettingsMedia = { id: number; url?: string | null }
+export type SiteSettingsServico = {
+  titulo: string
+  descricao: string
+  itens?: Array<{ item: string; id?: string }>
+  id?: string
+}
+export type SiteSettingsData = {
+  sobreFoto?: SiteSettingsMedia | number | null
+  escritorioFoto?: SiteSettingsMedia | number | null
+  servicos?: SiteSettingsServico[]
+}
+
+export function extractMediaUrl(
+  field: SiteSettingsMedia | number | null | undefined,
+): string | null {
+  if (!field || typeof field === 'number') return null
+  return field.url ?? null
+}
+
+async function _getSiteSettings(): Promise<SiteSettingsData> {
+  const payload = await getPayload({ config })
+  return payload.findGlobal({ slug: 'site-settings', depth: 1 }) as Promise<SiteSettingsData>
+}
+
+export async function getSiteSettings(): Promise<SiteSettingsData> {
+  return unstable_cache(
+    () => _getSiteSettings(),
+    ['site-settings'],
+    { revalidate: 3600, tags: ['site-settings'] },
+  )()
+}

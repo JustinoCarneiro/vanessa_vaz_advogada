@@ -111,13 +111,22 @@ async function run() {
   const token = await login()
   console.log('✅  Login OK')
 
+  // Busca o estado atual para não sobrescrever fotos já configuradas
+  const current = await fetch(`${BASE}/api/globals/site-settings`, {
+    headers: { Authorization: `JWT ${token}` },
+  }).then((r) => r.json()).catch(() => ({}))
+
   const res = await fetch(`${BASE}/api/globals/site-settings`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `JWT ${token}`,
     },
-    body: JSON.stringify({ servicos: SERVICOS }),
+    body: JSON.stringify({
+      sobreFoto: current.sobreFoto ?? null,
+      escritorioFoto: current.escritorioFoto ?? null,
+      servicos: SERVICOS,
+    }),
   })
 
   const data = await res.json()

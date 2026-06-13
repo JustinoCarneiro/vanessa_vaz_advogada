@@ -9,6 +9,7 @@ import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Container } from '@/components/ui/Container'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { getPosts, getSiteSettings, extractMediaUrl } from '@/lib/api'
+import { SERVICOS_ICONS } from '@/components/servicos/servicosIcons'
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SERVER_URL?.replace(/\/$/, '') ?? 'https://vvmadvocacia.adv.br'
@@ -49,62 +50,6 @@ export const metadata: Metadata = {
     'Especialista em Direito Previdenciário em Florianópolis/SC. Aposentadorias, BPC/LOAS, pensão por morte, revisão de benefícios e mais.',
 }
 
-const services = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
-      </svg>
-    ),
-    title: 'Aposentadorias',
-    description: 'Por idade, tempo de contribuição e regras de transição — planejamento e concessão.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <path d="M12 3l8 4.5v5c0 4-3.3 7.7-8 9-4.7-1.3-8-5-8-9v-5L12 3z" />
-      </svg>
-    ),
-    title: 'Aposentadoria Especial',
-    description: 'Reconhecimento de tempo em atividades insalubres ou perigosas, com prova técnica.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
-    title: 'Benefícios por Incapacidade',
-    description: 'Auxílio-doença e aposentadoria por invalidez — da perícia médica ao recurso.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-      </svg>
-    ),
-    title: 'BPC/LOAS',
-    description: 'Benefício assistencial para idosos e pessoas com deficiência em situação de baixa renda.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 22V12h6v10" />
-      </svg>
-    ),
-    title: 'Pensão por Morte',
-    description: 'Orientação completa e acolhedora para dependentes em um momento delicado.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-        <path d="M23 4v6h-6" /><path d="M1 20v-6h6" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
-      </svg>
-    ),
-    title: 'Revisão de Benefícios',
-    description: 'Reanálise de valores e correção de erros de cálculo em benefícios já concedidos.',
-  },
-]
 
 export default async function HomePage() {
   let recentPosts: Awaited<ReturnType<typeof getPosts>>['docs'] = []
@@ -117,6 +62,11 @@ export default async function HomePage() {
 
   const settings = await getSiteSettings()
   const fotoUrl = extractMediaUrl(settings.sobreFoto)
+  const services = (settings.servicos ?? []).map((s, i) => ({
+    icon: SERVICOS_ICONS[i],
+    title: s.titulo,
+    description: s.descricao,
+  }))
 
   return (
     <>

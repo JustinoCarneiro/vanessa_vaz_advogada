@@ -47,7 +47,7 @@ export default function SobrePage() {
   return (
     <>
       {/* Intro: foto + apresentação */}
-      <section style={{ background: '#FFFFFF', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#FFFFFF' }}>
         <div
           className="max-w-[1056px] mx-auto grid md:grid-cols-[1fr_420px] items-center"
           style={{ gap: '0 80px' }}
@@ -119,8 +119,8 @@ export default function SobrePage() {
 
       {/* Filosofia */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: '#3D5C5F', padding: '104px 56px' }}
+        className="relative overflow-hidden px-5 md:px-14 py-16 md:py-[104px]"
+        style={{ background: '#3D5C5F' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -156,7 +156,7 @@ export default function SobrePage() {
       </section>
 
       {/* Bio + Trajetória */}
-      <section style={{ background: '#FFFFFF', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#FFFFFF' }}>
         <div
           className="max-w-[1056px] mx-auto grid md:grid-cols-[380px_1fr] items-start"
           style={{ gap: '0 72px' }}
@@ -229,8 +229,8 @@ export default function SobrePage() {
 
       {/* CTA */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: '#BDE4DA', padding: '88px 56px' }}
+        className="relative overflow-hidden px-5 md:px-14 py-14 md:py-[88px]"
+        style={{ background: '#BDE4DA' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

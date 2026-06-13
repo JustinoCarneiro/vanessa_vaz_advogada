@@ -82,7 +82,7 @@ export default function EscritorioPage() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(90deg, rgba(18,32,34,0.78) 0%, rgba(18,32,34,0.45) 55%, rgba(18,32,34,0.25) 100%)' }}
         />
-        <div className="relative h-full max-w-[1168px] mx-auto px-14 flex flex-col justify-center">
+        <div className="relative h-full max-w-[1168px] mx-auto px-5 md:px-14 flex flex-col justify-center">
           <div className="max-w-[560px]">
             <p
               className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-[18px]"
@@ -113,7 +113,7 @@ export default function EscritorioPage() {
       </section>
 
       {/* Missão */}
-      <section style={{ background: '#FFFFFF', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#FFFFFF' }}>
         <div className="max-w-[880px] mx-auto text-center">
           <p
             className="text-[13px] font-semibold tracking-[0.16em] uppercase mb-5"
@@ -138,7 +138,7 @@ export default function EscritorioPage() {
       </section>
 
       {/* Valores */}
-      <section style={{ background: '#BDE4DA', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#BDE4DA' }}>
         <div className="max-w-[1056px] mx-auto">
           <div className="text-center mb-14">
             <p
@@ -182,7 +182,7 @@ export default function EscritorioPage() {
       </section>
 
       {/* Diferenciais */}
-      <section style={{ background: '#FFFFFF', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#FFFFFF' }}>
         <div
           className="max-w-[1056px] mx-auto grid md:grid-cols-[480px_1fr] items-center"
           style={{ gap: '0 72px' }}
@@ -246,8 +246,8 @@ export default function EscritorioPage() {
 
       {/* CTA */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: '#3D5C5F', padding: '96px 56px' }}
+        className="relative overflow-hidden px-5 md:px-14 py-16 md:py-24"
+        style={{ background: '#3D5C5F' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

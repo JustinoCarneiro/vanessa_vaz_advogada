@@ -134,8 +134,8 @@ export default function ServicosPage() {
     <>
       {/* Hero */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: '#3D5C5F', padding: '96px 56px 104px' }}
+        className="relative overflow-hidden px-5 md:px-14 pt-16 md:pt-24 pb-16 md:pb-[104px]"
+        style={{ background: '#3D5C5F' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -167,7 +167,7 @@ export default function ServicosPage() {
       </section>
 
       {/* Cards de serviço */}
-      <section style={{ background: '#FFFFFF', padding: '88px 56px 96px' }}>
+      <section className="px-5 md:px-14 pt-14 md:pt-[88px] pb-16 md:pb-24" style={{ background: '#FFFFFF' }}>
         <div
           className="max-w-[1168px] mx-auto grid sm:grid-cols-2"
           style={{ gap: 28 }}
@@ -226,7 +226,7 @@ export default function ServicosPage() {
       </section>
 
       {/* Diferenciais */}
-      <section style={{ background: '#BDE4DA', padding: '96px 56px' }}>
+      <section className="px-5 md:px-14 py-16 md:py-24" style={{ background: '#BDE4DA' }}>
         <div
           className="max-w-[1056px] mx-auto grid md:grid-cols-[380px_1fr] items-start"
           style={{ gap: '0 72px' }}
@@ -273,8 +273,8 @@ export default function ServicosPage() {
 
       {/* CTA final */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: '#3D5C5F', padding: '96px 56px' }}
+        className="relative overflow-hidden px-5 md:px-14 py-16 md:py-24"
+        style={{ background: '#3D5C5F' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

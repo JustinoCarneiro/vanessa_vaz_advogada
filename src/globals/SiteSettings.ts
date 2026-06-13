@@ -15,7 +15,10 @@ export const SiteSettings: GlobalConfig = {
       type: 'upload',
       relationTo: 'media',
       admin: {
-        description: 'Foto da advogada exibida na página "Sobre Mim" e na home.',
+        description:
+          'Foto da advogada exibida na página "Sobre Mim" e na home. ' +
+          'Use uma foto em formato retrato (vertical), de preferência com rosto e ombros visíveis no centro. ' +
+          'Tamanho mínimo recomendado: 800 × 1000 px. Máximo: 5 MB.',
       },
     },
     {
@@ -24,7 +27,10 @@ export const SiteSettings: GlobalConfig = {
       type: 'upload',
       relationTo: 'media',
       admin: {
-        description: 'Foto do ambiente exibida na página "Sobre o Escritório".',
+        description:
+          'Foto do ambiente exibida na página "Sobre o Escritório". ' +
+          'Use uma foto em formato paisagem (horizontal), mostrando a mesa, sala ou fachada. ' +
+          'Tamanho mínimo recomendado: 1200 × 800 px. Máximo: 5 MB.',
       },
     },
     {

@@ -18,9 +18,11 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
-      label: 'Texto alternativo (acessibilidade)',
+      label: 'Descrição da imagem',
       admin: {
-        description: 'Descreva a imagem para leitores de tela e SEO.',
+        description:
+          'Descreva brevemente o que aparece na foto (ex: "Foto da advogada Vanessa em seu escritório"). ' +
+          'Usado por leitores de tela e pelo Google — importante para acessibilidade e SEO.',
       },
     },
   ],

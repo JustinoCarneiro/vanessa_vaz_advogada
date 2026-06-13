@@ -8,7 +8,7 @@ import { PostCard } from '@/components/blog/PostCard'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Container } from '@/components/ui/Container'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { getPosts } from '@/lib/api'
+import { getPosts, getSiteSettings, extractMediaUrl } from '@/lib/api'
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SERVER_URL?.replace(/\/$/, '') ?? 'https://vvmadvocacia.adv.br'
@@ -115,6 +115,9 @@ export default async function HomePage() {
     recentPosts = []
   }
 
+  const settings = await getSiteSettings()
+  const fotoUrl = extractMediaUrl(settings.sobreFoto)
+
   return (
     <>
       <JsonLd schema={legalServiceSchema} />
@@ -171,13 +174,24 @@ export default async function HomePage() {
                 className="relative overflow-hidden h-[320px] md:h-[520px]"
                 style={{ borderRadius: 6, zIndex: 1 }}
               >
-                <Image
-                  src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=900&q=80"
-                  alt="Vanessa Vaz Marschallinger, advogada previdenciária"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 420px"
-                />
+                {fotoUrl ? (
+                  <Image
+                    src={fotoUrl}
+                    alt="Vanessa Vaz Marschallinger, advogada previdenciária"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 420px"
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center"
+                    style={{ background: '#BDE4DA' }}
+                  >
+                    <p className="text-[13px] font-semibold text-[#3D5C5F] tracking-wide uppercase">
+                      Foto não configurada
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

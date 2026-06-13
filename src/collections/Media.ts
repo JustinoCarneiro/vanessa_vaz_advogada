@@ -2,6 +2,14 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  labels: {
+    singular: 'Arquivo',
+    plural: 'Arquivos e Imagens',
+  },
+  admin: {
+    description: 'Imagens enviadas para o site. Formatos aceitos: JPG, PNG, WebP e SVG.',
+    group: 'Configurações',
+  },
   access: {
     read: () => true,
   },

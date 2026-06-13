@@ -2,10 +2,15 @@ import type { CollectionConfig } from 'payload'
 
 export const ContactMessages: CollectionConfig = {
   slug: 'contact-messages',
+  labels: {
+    singular: 'Mensagem',
+    plural: 'Mensagens de Contato',
+  },
   admin: {
     useAsTitle: 'subject',
     defaultColumns: ['name', 'email', 'subject', 'read', 'createdAt'],
-    description: 'Mensagens recebidas pelo formulário de contato.',
+    group: 'Contato',
+    description: 'Mensagens enviadas pelo formulário do site. Clique em uma para ver os detalhes e responder por e-mail.',
   },
   access: {
     create: () => true,

@@ -2,9 +2,15 @@ import type { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
+  labels: {
+    singular: 'Artigo',
+    plural: 'Artigos do Blog',
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'status', 'publishedAt'],
+    group: 'Blog',
+    description: 'Escreva e publique artigos. Rascunhos ficam salvos mas não aparecem no site até você publicar.',
   },
   access: {
     read: ({ req: { user } }) => {

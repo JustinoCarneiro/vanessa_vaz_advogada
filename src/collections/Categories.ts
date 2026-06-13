@@ -2,8 +2,14 @@ import type { CollectionConfig } from 'payload'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',
+  labels: {
+    singular: 'Categoria',
+    plural: 'Categorias do Blog',
+  },
   admin: {
     useAsTitle: 'name',
+    group: 'Blog',
+    description: 'Crie categorias para organizar os artigos por tema (ex: INSS, Aposentadoria, BPC).',
   },
   access: {
     read: () => true,

@@ -3,7 +3,11 @@ import { ICONES_OPTIONS } from '@/components/servicos/servicosIcons'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
-  label: 'Configurações do Site',
+  label: 'Fotos e Serviços',
+  admin: {
+    group: 'Configurações',
+    description: 'Atualize as fotos do site e o conteúdo dos cards de serviços.',
+  },
   fields: [
     {
       name: 'sobreFoto',

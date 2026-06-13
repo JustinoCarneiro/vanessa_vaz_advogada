@@ -132,6 +132,6 @@ export async function getSiteSettings(): Promise<SiteSettingsData> {
   return unstable_cache(
     () => _getSiteSettings(),
     ['site-settings'],
-    { revalidate: 3600, tags: ['site-settings'] },
+    { revalidate: 60, tags: ['site-settings'] },
   )()
 }

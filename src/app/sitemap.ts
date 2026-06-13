@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getPosts } from '@/lib/api'
+import { getPosts, getCategories } from '@/lib/api'
 
 const baseUrl =
   process.env.NEXT_PUBLIC_SERVER_URL?.replace(/\/$/, '') ?? 'https://vvmadvocacia.adv.br'
@@ -15,9 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   let postPages: MetadataRoute.Sitemap = []
+  let categoryPages: MetadataRoute.Sitemap = []
   try {
-    const result = await getPosts({ limit: 200 })
-    postPages = result.docs
+    const [postsResult, categories] = await Promise.all([
+      getPosts({ limit: 200 }),
+      getCategories(),
+    ])
+    postPages = postsResult.docs
       .filter((p) => p.slug)
       .map((p) => ({
         url: `${baseUrl}/blog/${p.slug}`,
@@ -25,9 +29,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
         changeFrequency: 'monthly' as const,
       }))
+    categoryPages = categories
+      .filter((c) => c.slug)
+      .map((c) => ({
+        url: `${baseUrl}/blog/categoria/${c.slug}`,
+        lastModified: new Date(),
+        priority: 0.6,
+        changeFrequency: 'weekly' as const,
+      }))
   } catch {
     // DB may not be available at build time — static pages are still indexed
   }
 
-  return [...staticPages, ...postPages]
+  return [...staticPages, ...categoryPages, ...postPages]
 }

@@ -3,8 +3,6 @@ import { Resend } from 'resend'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown>
   try {
@@ -61,6 +59,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true }, { status: 200 })
     }
 
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const to = process.env.CONTACT_EMAIL_TO ?? 'contato@vvmadvocacia.adv.br'
     await resend.emails.send({
       from: 'Site VVM Advocacia <no-reply@vvmadvocacia.adv.br>',

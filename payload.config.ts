@@ -34,6 +34,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    // Sincroniza o schema automaticamente ao inicializar (sem migrations manuais).
+    // Seguro para MVP com admin único — equivalente ao `db push` do drizzle.
+    push: true,
   }),
   editor: lexicalEditor(),
   plugins: [

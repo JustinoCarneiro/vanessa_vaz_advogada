@@ -19,7 +19,8 @@
     "seed:prod": "SEED_BASE_URL=https://projeto-vanessa-two.vercel.app node scripts/seed.mjs",
     "init-settings": "node scripts/init-settings.mjs",
     "init-settings:prod": "SEED_BASE_URL=https://projeto-vanessa-two.vercel.app node scripts/init-settings.mjs",
-    "generate-og": "node scripts/generate-og.mjs"
+    "generate-og": "node scripts/generate-og.mjs",
+    "upload-fotos:prod": "SEED_BASE_URL=https://projeto-vanessa-two.vercel.app node scripts/upload-fotos.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.0.0",

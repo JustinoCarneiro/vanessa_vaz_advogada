@@ -43,7 +43,14 @@ export default buildConfig({
       ? [
           vercelBlobStorage({
             enabled: true,
-            collections: { media: true },
+            collections: {
+              media: {
+                // Desativa o proxy do Payload para arquivos de mídia.
+                // Com true, afterRead usa adapter.generateURL → URL direta do Blob CDN
+                // (*.public.blob.vercel-storage.com já está em next.config remotePatterns).
+                disablePayloadAccessControl: true,
+              },
+            },
             token: process.env.BLOB_READ_WRITE_TOKEN,
           }),
         ]

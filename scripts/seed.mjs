@@ -24,7 +24,7 @@ try {
   }
 } catch { /* usa variáveis já no ambiente */ }
 
-const BASE     = 'http://localhost:3000'
+const BASE     = process.env.SEED_BASE_URL || 'http://localhost:3000'
 const EMAIL    = process.env.PLAYWRIGHT_ADMIN_EMAIL
 const PASSWORD = process.env.PLAYWRIGHT_ADMIN_PASSWORD
 
@@ -311,7 +311,7 @@ async function main() {
     }
   }
 
-  console.log('\n🎉  Seed concluído! Acesse http://localhost:3000/blog\n')
+  console.log(`\n🎉  Seed concluído! Acesse ${BASE}/blog\n`)
 }
 
 main().catch((err) => {

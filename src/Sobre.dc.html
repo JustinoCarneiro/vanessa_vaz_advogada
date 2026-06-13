@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #E8EBEB; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div data-root="1" style="font-family: Montserrat, sans-serif; background: #E8EBEB; min-height: 100vh; padding: 48px 40px 96px">
+
+  <!-- ===================== NOTAS DE DESIGN ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto 56px; background: #FFFFFF; border-radius: 12px; padding: 32px 36px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px">
+      <img src="assets/simbolo-teal-escuro.png" alt="Símbolo VVM" style="height: 40px; width: auto">
+      <div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1.2">SOBRE MIM — Fase 2b · Layout</div>
+        <div style="font-size: 13px; color: #555555; margin-top: 2px">Tela 6 de 7 · Vanessa Vaz Marschallinger — Advocacia Previdenciária</div>
+      </div>
+    </div>
+    <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: #333333">
+      <li>Mesma foto-placeholder da seção "Quem é Vanessa" da Home — a mesma pessoa em todo o site; substituir pelo ensaio real.</li>
+      <li><strong>Bio, formação e linha do tempo são fictícias plausíveis</strong> — instituições, anos e títulos a confirmar com a cliente.</li>
+      <li>Filosofia de trabalho em citação de destaque sobre teal escuro, com marca d'água — o momento emocional da página.</li>
+      <li>Tela quase toda estática: os componentes interativos (nav, CTAs, links) repetem os estados já especificados nas telas anteriores; a prancha de estados traz só o que é novo.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== DESKTOP 1280 ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Sobre Mim · Desktop 1280</div>
+  </div>
+  <div data-screen-label="Sobre Mim — Desktop 1280" style="width: 1280px; margin: 0 auto 72px; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.10)">
+
+    <!-- NavBar -->
+    <nav style="display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 88px; background: #3D5C5F; border-bottom: 1px solid rgba(255,255,255,0.12)">
+      <a href="Home.dc.html" style="display: inline-flex; align-items: center"><img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária" style="height: 52px; width: auto"></a>
+      <div style="display: flex; align-items: center; gap: 36px">
+        <a href="Sobre.dc.html" aria-current="page" style="font-size: 14px; font-weight: 600; color: #FFFFFF; text-decoration: none; letter-spacing: 0.02em; border-bottom: 2px solid #BDE4DA; padding-bottom: 4px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Sobre</a>
+        <a href="Escritorio.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Escritório</a>
+        <a href="Servicos.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Serviços</a>
+        <a href="Blog.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Blog</a>
+        <a href="Contato.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Contato</a>
+        <a href="Contato.dc.html" style="display: inline-block; font-size: 14px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; text-decoration: none; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em; transition: background 0.2s ease" style-hover="background: #BDE4DA" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Fale Comigo</a>
+      </div>
+    </nav>
+
+    <!-- Intro: foto + apresentação -->
+    <section style="background: #FFFFFF; padding: 96px 56px">
+      <div style="max-width: 1056px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center">
+        <div>
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 18px">Sobre mim</div>
+          <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 48px; line-height: 1.12; color: #111111; margin: 0 0 14px; text-wrap: pretty">Vanessa Vaz Marschallinger</h1>
+          <div style="font-size: 15px; font-weight: 600; color: #3D5C5F; margin-bottom: 28px">Advogada previdenciarista · OAB/SC 12.345</div>
+          <p style="font-size: 17px; line-height: 1.75; color: #333333; margin: 0 0 16px; text-wrap: pretty">Escolhi o Direito Previdenciário ao ver de perto o que uma negativa do INSS faz com a vida de uma família: a renda que falta, a doença que não espera, a sensação de falar com um sistema que não escuta.</p>
+          <p style="font-size: 17px; line-height: 1.75; color: #333333; margin: 0; text-wrap: pretty">Desde então, minha atuação tem um único foco: traduzir esse sistema para quem precisa dele — e fazer cada caso andar com estratégia, prazo e transparência.</p>
+        </div>
+        <div style="position: relative">
+          <div style="position: absolute; top: 24px; left: 24px; right: -24px; bottom: -24px; background: #BDE4DA; border-radius: 6px"></div>
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1000&amp;q=80" alt="Retrato profissional de Vanessa (placeholder)" style="position: relative; width: 100%; height: 540px; object-fit: cover; object-position: center top; border-radius: 6px; display: block">
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofia: citação -->
+    <section style="position: relative; background: #3D5C5F; padding: 104px 56px; overflow: hidden">
+      <img src="assets/marcadagua-branco.png" alt="" style="position: absolute; left: -70px; bottom: -70px; height: 380px; width: auto; opacity: 0.08; pointer-events: none">
+      <blockquote style="position: relative; max-width: 880px; margin: 0 auto; text-align: center; padding: 0">
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 38px; line-height: 1.4; color: #FFFFFF; margin: 0 0 28px; text-wrap: pretty">"Por trás de cada processo existe uma pessoa esperando uma resposta. Eu advogo para que ela não espere sozinha."</p>
+        <footer style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BDE4DA">Filosofia de trabalho</footer>
+      </blockquote>
+    </section>
+
+    <!-- Bio + trajetória -->
+    <section style="background: #FFFFFF; padding: 96px 56px">
+      <div style="max-width: 1056px; margin: 0 auto; display: grid; grid-template-columns: 380px 1fr; gap: 72px; align-items: start">
+        <div>
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 16px">Trajetória</div>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 38px; line-height: 1.2; color: #111111; margin: 0 0 20px; text-wrap: pretty">Formação e caminho até aqui</h2>
+          <p style="font-size: 15.5px; line-height: 1.75; color: #333333; margin: 0; text-wrap: pretty">Mais de uma década dedicada exclusivamente ao Direito Previdenciário — da graduação à especialização, do balcão do INSS aos tribunais superiores.</p>
+        </div>
+
+        <div style="border-left: 2px solid #89B0AF; display: flex; flex-direction: column; gap: 40px; padding: 8px 0 8px 0">
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2014</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">Graduação em Direito — UFSC</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Monografia sobre o acesso de trabalhadores rurais aos benefícios do INSS.</p>
+          </div>
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2015</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">OAB/SC e início da advocacia</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Primeiros anos em escritório de direito social, atendendo segurados do INSS.</p>
+          </div>
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2017</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">Especialização em Direito Previdenciário</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Pós-graduação com ênfase em processo previdenciário e regime próprio.</p>
+          </div>
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2019</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">Escritório próprio, foco exclusivo</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Fundação da banca dedicada 100% ao Direito Previdenciário.</p>
+          </div>
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2022</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">Membro do IBDP</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Instituto Brasileiro de Direito Previdenciário — atualização constante em teses e jurisprudência.</p>
+          </div>
+          <div style="position: relative; padding-left: 36px">
+            <span style="position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 8px">2025</div>
+            <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 6px">Atendimento online em todo o Brasil</div>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Consultas e acompanhamento a distância, com a mesma proximidade do presencial.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="position: relative; background: #BDE4DA; padding: 88px 56px; overflow: hidden">
+      <img src="assets/marcadagua-preto.png" alt="" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); height: 340px; width: auto; opacity: 0.10; pointer-events: none">
+      <div style="position: relative; max-width: 720px; margin: 0 auto; text-align: center">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 38px; line-height: 1.2; color: #111111; margin: 0 0 16px; text-wrap: pretty">Vamos conversar sobre o seu caso?</h2>
+        <p style="font-size: 16.5px; line-height: 1.65; color: #2A3F41; margin: 0 0 36px">Presencial em Florianópolis ou online, de onde você estiver.</p>
+        <a href="Contato.dc.html" style="display: inline-block; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; text-decoration: none; padding: 17px 44px; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s ease" style-hover="background: #2F484B" style-focus="outline: 3px solid #3D5C5F; outline-offset: 3px">Agendar Consulta</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #3D5C5F; padding: 72px 56px 0">
+      <div style="max-width: 1168px; margin: 0 auto">
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 56px">
+          <div>
+            <img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária" style="height: 56px; width: auto; margin-bottom: 20px">
+            <p style="font-size: 14px; line-height: 1.7; color: #BDE4DA; margin: 0; max-width: 280px">Advocacia previdenciária com atendimento humano, próximo e especializado.</p>
+          </div>
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #89B0AF; margin-bottom: 18px">Navegação</div>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <a href="Sobre.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Sobre</a>
+              <a href="Escritorio.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Escritório</a>
+              <a href="Servicos.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Serviços</a>
+              <a href="Blog.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Blog</a>
+              <a href="Contato.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Contato</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #89B0AF; margin-bottom: 18px">Contato</div>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <a href="mailto:contato@vvmadvocacia.adv.br" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">contato@vvmadvocacia.adv.br</a>
+              <span style="font-size: 14px; color: #FFFFFF">Florianópolis · SC</span>
+              <span style="font-size: 14px; color: #BDE4DA">Atendimento online em todo o Brasil</span>
+            </div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.18); padding: 24px 0 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span style="font-size: 13px; color: #BDE4DA">Vanessa Vaz Marschallinger · OAB/SC 12.345</span>
+          <span style="font-size: 13px; color: #BDE4DA">© 2026 Todos os direitos reservados</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== MOBILE 375 ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Sobre Mim · Mobile 375</div>
+  </div>
+  <div style="max-width: 1280px; margin: 0 auto 72px; display: flex; align-items: flex-start; gap: 40px">
+    <div data-screen-label="Sobre Mim — Mobile 375" style="width: 375px; flex: 0 0 auto; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.10)">
+
+      <nav style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; background: #3D5C5F; border-bottom: 1px solid rgba(255,255,255,0.12)">
+        <a href="Home.dc.html" style="display: inline-flex; align-items: center"><img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger" style="height: 38px; width: auto"></a>
+        <button aria-label="Abrir menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 0" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </nav>
+
+      <section style="padding: 48px 24px 56px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 14px">Sobre mim</div>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #111111; margin: 0 0 8px">Vanessa Vaz Marschallinger</h1>
+        <div style="font-size: 14px; font-weight: 600; color: #3D5C5F; margin-bottom: 24px">Advogada previdenciarista · OAB/SC 12.345</div>
+        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&amp;q=80" alt="Retrato profissional de Vanessa (placeholder)" style="width: 100%; height: 320px; object-fit: cover; object-position: center top; border-radius: 6px; display: block; margin-bottom: 24px">
+        <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0 0 14px; text-wrap: pretty">Escolhi o Direito Previdenciário ao ver de perto o que uma negativa do INSS faz com a vida de uma família: a renda que falta, a doença que não espera, a sensação de falar com um sistema que não escuta.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0; text-wrap: pretty">Desde então, meu trabalho é traduzir esse sistema para quem precisa dele.</p>
+      </section>
+
+      <section style="position: relative; background: #3D5C5F; padding: 64px 28px; overflow: hidden">
+        <img src="assets/marcadagua-branco.png" alt="" style="position: absolute; left: -70px; bottom: -70px; height: 240px; width: auto; opacity: 0.08; pointer-events: none">
+        <blockquote style="position: relative; margin: 0; text-align: center">
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 24px; line-height: 1.45; color: #FFFFFF; margin: 0 0 18px; text-wrap: pretty">"Por trás de cada processo existe uma pessoa esperando uma resposta. Eu advogo para que ela não espere sozinha."</p>
+          <footer style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #BDE4DA">Filosofia de trabalho</footer>
+        </blockquote>
+      </section>
+
+      <section style="padding: 48px 24px 56px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Trajetória</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.25; color: #111111; margin: 0 0 28px">Formação e caminho até aqui</h2>
+        <div style="border-left: 2px solid #89B0AF; display: flex; flex-direction: column; gap: 30px">
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2014</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">Graduação em Direito — UFSC</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Monografia sobre acesso de trabalhadores rurais ao INSS.</p>
+          </div>
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2015</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">OAB/SC e início da advocacia</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Primeiros anos atendendo segurados do INSS.</p>
+          </div>
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2017</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">Especialização em Direito Previdenciário</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Ênfase em processo previdenciário.</p>
+          </div>
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2019</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">Escritório próprio, foco exclusivo</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Banca dedicada 100% ao previdenciário.</p>
+          </div>
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2022</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">Membro do IBDP</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Atualização constante em teses e jurisprudência.</p>
+          </div>
+          <div style="position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2025</div>
+            <div style="font-size: 15px; font-weight: 600; color: #111111; margin-bottom: 4px">Atendimento online em todo o Brasil</div>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Mesma proximidade do presencial, a distância.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="position: relative; background: #BDE4DA; padding: 56px 24px; overflow: hidden">
+        <img src="assets/marcadagua-preto.png" alt="" style="position: absolute; right: -70px; bottom: -70px; height: 220px; width: auto; opacity: 0.10; pointer-events: none">
+        <div style="position: relative; text-align: center">
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 25px; line-height: 1.25; color: #111111; margin: 0 0 12px; text-wrap: pretty">Vamos conversar sobre o seu caso?</h2>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #2A3F41; margin: 0 0 24px">Presencial em Florianópolis ou online.</p>
+          <a href="Contato.dc.html" style="display: block; text-align: center; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; text-decoration: none; padding: 16px 0; border-radius: 4px" style-hover="background: #2F484B" style-focus="outline: 3px solid #3D5C5F; outline-offset: 3px">Agendar Consulta</a>
+        </div>
+      </section>
+
+      <footer style="background: #3D5C5F; padding: 40px 24px 24px">
+        <img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger" style="height: 48px; width: auto; margin-bottom: 24px">
+        <div style="border-top: 1px solid rgba(255,255,255,0.18); padding: 18px 0 0; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12.5px; color: #BDE4DA">Vanessa Vaz Marschallinger · OAB/SC 12.345</span>
+          <span style="font-size: 12.5px; color: #BDE4DA">© 2026 Todos os direitos reservados</span>
+        </div>
+      </footer>
+    </div>
+
+    <div data-chrome="1" style="flex: 1; background: #FFFFFF; border-radius: 10px; padding: 28px 30px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 14px">Notas · Mobile</div>
+      <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.9; color: #333333">
+        <li>Ordem mobile: nome + foto primeiro (rosto cria confiança antes do texto), depois citação, trajetória e CTA.</li>
+        <li>Linha do tempo preservada na vertical — funciona naturalmente no polegar.</li>
+        <li>Citação em 24px para manter o impacto sem estourar a largura.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== ESTADOS INTERATIVOS ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Estados interativos</div>
+  </div>
+  <div data-screen-label="Sobre Mim — Estados interativos" style="max-width: 1280px; margin: 0 auto; background: #FFFFFF; border-radius: 10px; padding: 40px 44px 48px; box-shadow: 0 2px 14px rgba(0,0,0,0.10); display: flex; flex-direction: column; gap: 32px">
+
+    <p style="font-size: 13.5px; line-height: 1.7; color: #333333; margin: 0; max-width: 760px">Esta tela é majoritariamente estática. Nav, CTAs e links seguem exatamente os estados já especificados nas pranchas de Home, Blog e Serviços. Abaixo, apenas o componente novo:</p>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Item da linha do tempo</div>
+      <div style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 360px">
+          <span style="display: block; border-left: 2px solid #89B0AF; position: relative; padding-left: 28px">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #3D5C5F; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <span style="display: block; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">2017</span>
+            <span style="display: block; font-size: 16px; font-weight: 600; color: #111111; margin-bottom: 4px">Especialização em Direito Previdenciário</span>
+            <span style="display: block; font-size: 14px; line-height: 1.6; color: #444444">Ênfase em processo previdenciário.</span>
+          </span>
+          <span style="font-size: 12px; color: #666666">Marcador: ano em Cormorant teal + ponto sobre a linha teal médio</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 360px">
+          <span style="display: block; border-left: 2px solid #89B0AF; position: relative; padding-left: 28px; opacity: 0.45">
+            <span style="position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; border: 3px solid #FFFFFF; box-shadow: 0 0 0 1px #89B0AF"></span>
+            <span style="display: block; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #3D5C5F; line-height: 1; margin-bottom: 6px">20—</span>
+            <span style="display: block; font-size: 16px; font-weight: 600; color: #111111; margin-bottom: 4px">Próxima conquista</span>
+            <span style="display: block; font-size: 14px; line-height: 1.6; color: #444444">Variante "futuro" (ponto vazado), caso o CMS liste metas.</span>
+          </span>
+          <span style="font-size: 12px; color: #666666">Variante opcional — item futuro/planejado</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

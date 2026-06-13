@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-teal-dark: #3D5C5F;
+  --color-teal-mid: #89B0AF;
+  --color-mint: #BDE4DA;
+  --color-teal-hover: #2F484B;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  font-family: var(--font-body);
+  color: #111111;
+  background-color: #FFFFFF;
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1) translateZ(0); }
+  to   { transform: scale(1.1) translateZ(0); }
+}

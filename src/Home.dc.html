@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #E8EBEB; }
+    * { box-sizing: border-box; }
+    @keyframes vvmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</helmet>
+
+<div data-root="1" style="font-family: Montserrat, sans-serif; background: #E8EBEB; min-height: 100vh; padding: 48px 40px 96px">
+
+  <!-- ===================== NOTAS DE DESIGN ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto 56px; background: #FFFFFF; border-radius: 12px; padding: 32px 36px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px">
+      <img src="assets/simbolo-teal-escuro.png" alt="Símbolo VVM" style="height: 40px; width: auto">
+      <div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #3D5C5F; line-height: 1.2">HOME — Fase 2b · Layout</div>
+        <div style="font-size: 13px; color: #555555; margin-top: 2px">Tela 1 de 7 · Vanessa Vaz Marschallinger — Advocacia Previdenciária</div>
+      </div>
+    </div>
+    <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.8; color: #333333">
+      <li><strong>Petita</strong> não está disponível como web font — aplicado o fallback aprovado <strong>Cormorant Garamond</strong> em todos os títulos.</li>
+      <li><strong>Fotos da Vanessa</strong>: placeholders profissionais (Unsplash) conforme o briefing, até receber as fotos reais do ensaio.</li>
+      <li><strong>Verificação dos arquivos de marca</strong>: chequei a cor real dos PNGs — <code style="background:#F0F4F3; padding:1px 5px; border-radius:4px">logo-teal.png</code> contém o horizontal <em>branco</em> (apliquei no footer sobre teal escuro) e <code style="background:#F0F4F3; padding:1px 5px; border-radius:4px">logo-dourado.png</code> no header sobre branco, como manda a tabela de variantes.</li>
+      <li><strong>Legendas</strong>: o briefing pede legenda em teal médio, mas teal médio sobre branco falha AA — legendas sobre branco usam teal escuro; teal médio fica reservado a fundos escuros.</li>
+      <li>Email, cidade e OAB são placeholders plausíveis a substituir.</li>
+    </ul>
+  </div>
+
+  <!-- ===================== DESKTOP 1280 ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Home · Desktop 1280</div>
+  </div>
+  <div data-screen-label="Home — Desktop 1280" style="width: 1280px; margin: 0 auto 72px; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.10)">
+
+    <!-- NavBar -->
+    <nav style="display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 88px; background: #3D5C5F; border-bottom: 1px solid rgba(255,255,255,0.12)">
+      <a href="Home.dc.html" style="display: inline-flex; align-items: center"><img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária" style="height: 52px; width: auto"></a>
+      <div style="display: flex; align-items: center; gap: 36px">
+        <a href="Sobre.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Sobre</a>
+        <a href="Escritorio.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Escritório</a>
+        <a href="Servicos.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Serviços</a>
+        <a href="Blog.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Blog</a>
+        <a href="Contato.dc.html" style="font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.02em" style-hover="color: #FFFFFF; text-decoration: underline; text-underline-offset: 6px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 4px">Contato</a>
+        <a href="Contato.dc.html" style="display: inline-block; font-size: 14px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; text-decoration: none; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em; transition: background 0.2s ease" style-hover="background: #BDE4DA" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Fale Comigo</a>
+      </div>
+    </nav>
+
+    <!-- Hero · carrossel -->
+    <section style="position: relative; height: 720px; overflow: hidden; background: #2F484B">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1800&amp;q=80" alt="Vanessa em ambiente profissional — slide 1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; opacity: {{s0}}; transition: opacity 1.6s ease">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=1800&amp;q=80" alt="Vanessa em ambiente profissional — slide 2" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; opacity: {{s1}}; transition: opacity 1.6s ease">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1800&amp;q=80" alt="Vanessa em ambiente profissional — slide 3" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; opacity: {{s2}}; transition: opacity 1.6s ease">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,32,34,0.38) 0%, rgba(18,32,34,0.52) 100%)"></div>
+      <div style="position: relative; height: 100%; max-width: 1168px; margin: 0 auto; padding: 0 56px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start">
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 56px; line-height: 1.15; color: #FFFFFF; margin: 0 0 20px; max-width: 640px; text-wrap: pretty">Segurança para conquistar o benefício que é seu por direito.</h1>
+        <p style="font-size: 18px; font-weight: 400; line-height: 1.6; color: rgba(255,255,255,0.94); margin: 0 0 36px; max-width: 520px; text-wrap: pretty">Advocacia previdenciária especializada em INSS — aposentadorias, benefícios por incapacidade, pensões e BPC/LOAS.</p>
+        <a href="Contato.dc.html" style="display: inline-block; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; border: 1px solid rgba(255,255,255,0.45); text-decoration: none; padding: 17px 40px; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s ease" style-hover="background: #2F484B" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Fale Comigo</a>
+      </div>
+      <div style="position: absolute; bottom: 36px; left: 0; right: 0; display: flex; justify-content: center; gap: 12px">
+        <button onClick="{{goTo0}}" aria-label="Slide 1" style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot0Bg}}; cursor: pointer; padding: 0; transition: background 0.3s ease" style-hover="background: rgba(255,255,255,0.65)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px"></button>
+        <button onClick="{{goTo1}}" aria-label="Slide 2" style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot1Bg}}; cursor: pointer; padding: 0; transition: background 0.3s ease" style-hover="background: rgba(255,255,255,0.65)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px"></button>
+        <button onClick="{{goTo2}}" aria-label="Slide 3" style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot2Bg}}; cursor: pointer; padding: 0; transition: background 0.3s ease" style-hover="background: rgba(255,255,255,0.65)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px"></button>
+      </div>
+    </section>
+
+    <!-- Quem é Vanessa -->
+    <section style="background: #FFFFFF; padding: 100px 56px">
+      <div style="max-width: 1056px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center">
+        <div>
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 18px">Quem é Vanessa</div>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.2; color: #111111; margin: 0 0 24px; text-wrap: pretty">Ao seu lado em cada etapa, da análise do caso à decisão final.</h2>
+          <p style="font-size: 17px; line-height: 1.75; color: #333333; margin: 0 0 16px; text-wrap: pretty">Sou Vanessa Vaz Marschallinger, advogada especializada em Direito Previdenciário. Atuo ao lado de quem teve o benefício negado, cortado ou reduzido pelo INSS — com escuta atenta, estratégia clara e acompanhamento próximo do início ao fim do processo.</p>
+          <p style="font-size: 17px; line-height: 1.75; color: #333333; margin: 0 0 32px; text-wrap: pretty">Cada caso recebe análise individual: aqui você não é um número de protocolo.</p>
+          <a href="Sobre.dc.html" style="font-size: 15px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px" style-hover="color: #2F484B; text-decoration-thickness: 2.5px" style-focus="outline: 2px solid #3D5C5F; outline-offset: 4px">Conheça minha trajetória</a>
+        </div>
+        <div style="position: relative">
+          <div style="position: absolute; top: 24px; left: 24px; right: -24px; bottom: -24px; background: #BDE4DA; border-radius: 6px"></div>
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1000&amp;q=80" alt="Retrato profissional de Vanessa (placeholder)" style="position: relative; width: 100%; height: 520px; object-fit: cover; object-position: center top; border-radius: 6px; display: block">
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas de atuação -->
+    <section style="background: #BDE4DA; padding: 100px 56px">
+      <div style="max-width: 1168px; margin: 0 auto">
+        <div style="text-align: center; margin-bottom: 56px">
+          <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 16px">Áreas de atuação</div>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.2; color: #111111; margin: 0; text-wrap: pretty">Como posso ajudar você</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px">
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">Aposentadorias</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Por idade, tempo de contribuição e regras de transição — planejamento e concessão.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">Aposentadoria Especial</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Reconhecimento de tempo em atividades insalubres ou perigosas, com prova técnica.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"></path><path d="M5.5 12h3l1.5-3 2 5 1.5-3h4"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">Benefícios por Incapacidade</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Auxílio-doença e aposentadoria por invalidez — da perícia médica ao recurso.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">BPC / LOAS</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Benefício assistencial para idosos e pessoas com deficiência em situação de baixa renda.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 9.5V20h14V9.5"></path><path d="M10 20v-6h4v6"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">Pensão por Morte</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Orientação completa e acolhedora para dependentes em um momento delicado.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 36px 32px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 22px">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 6.3"></path><path d="M20 6v5h-5"></path></svg>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 600; color: #111111; margin: 0 0 10px">Revisão de Benefícios</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: #444444; margin: 0">Reanálise de valores e correção de erros de cálculo em benefícios já concedidos.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Chamada para contato -->
+    <section style="position: relative; background: #3D5C5F; padding: 110px 56px; overflow: hidden">
+      <img src="assets/marcadagua-branco.png" alt="" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); height: 420px; width: auto; opacity: 0.08; pointer-events: none">
+      <div style="position: relative; max-width: 760px; margin: 0 auto; text-align: center">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 42px; line-height: 1.2; color: #FFFFFF; margin: 0 0 18px; text-wrap: pretty">Cada caso tem um caminho. Vamos encontrar o seu.</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #BDE4DA; margin: 0 0 40px">Atendimento humano e individual, presencial ou online.</p>
+        <a href="Contato.dc.html" style="display: inline-block; font-size: 15px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; text-decoration: none; padding: 17px 44px; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s ease" style-hover="background: #BDE4DA" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Agendar Consulta</a>
+      </div>
+    </section>
+
+    <!-- Últimos posts -->
+    <section style="background: #FFFFFF; padding: 100px 56px">
+      <div style="max-width: 1168px; margin: 0 auto">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px">
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 16px">Blog</div>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.2; color: #111111; margin: 0">Últimas publicações</h2>
+          </div>
+          <a href="#" style="font-size: 15px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; white-space: nowrap" style-hover="color: #2F484B; text-decoration-thickness: 2.5px" style-focus="outline: 2px solid #3D5C5F; outline-offset: 4px">Ver todos os artigos</a>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px">
+
+          <a href="#" style="display: block; text-decoration: none; background: #FFFFFF; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.15)" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&amp;q=80" alt="Documentos sobre mesa" style="width: 100%; height: 200px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 26px 26px 30px">
+              <span style="display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px">Aposentadoria</span>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 12px; text-wrap: pretty">Aposentadoria negada pelo INSS: o que fazer nos primeiros 30 dias</h3>
+              <div style="font-size: 13px; color: #3D5C5F; margin-bottom: 14px">12 de maio de 2026</div>
+              <span style="font-size: 14px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 5px">Ler artigo</span>
+            </div>
+          </a>
+
+          <a href="#" style="display: block; text-decoration: none; background: #FFFFFF; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.15)" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&amp;q=80" alt="Atendimento profissional" style="width: 100%; height: 200px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 26px 26px 30px">
+              <span style="display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px">Perícia Médica</span>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 12px; text-wrap: pretty">Como se preparar para a perícia médica do INSS</h3>
+              <div style="font-size: 13px; color: #3D5C5F; margin-bottom: 14px">28 de abril de 2026</div>
+              <span style="font-size: 14px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 5px">Ler artigo</span>
+            </div>
+          </a>
+
+          <a href="#" style="display: block; text-decoration: none; background: #FFFFFF; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.15)" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&amp;q=80" alt="Anotações em caderno" style="width: 100%; height: 200px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 26px 26px 30px">
+              <span style="display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px">BPC / LOAS</span>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 12px; text-wrap: pretty">BPC/LOAS: quem tem direito e como comprovar a renda familiar</h3>
+              <div style="font-size: 13px; color: #3D5C5F; margin-bottom: 14px">9 de abril de 2026</div>
+              <span style="font-size: 14px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 5px">Ler artigo</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #3D5C5F; padding: 72px 56px 0">
+      <div style="max-width: 1168px; margin: 0 auto">
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px">
+          <div>
+            <img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária" style="height: 56px; width: auto; margin-bottom: 20px">
+            <p style="font-size: 14px; line-height: 1.7; color: #BDE4DA; margin: 0; max-width: 280px">Advocacia previdenciária com atendimento humano, próximo e especializado.</p>
+          </div>
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #89B0AF; margin-bottom: 18px">Navegação</div>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <a href="Sobre.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Sobre</a>
+              <a href="Escritorio.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Escritório</a>
+              <a href="Servicos.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Serviços</a>
+              <a href="Blog.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Blog</a>
+              <a href="Contato.dc.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Contato</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #89B0AF; margin-bottom: 18px">Contato</div>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <a href="mailto:contato@vvmadvocacia.adv.br" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline; text-underline-offset: 5px" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">contato@vvmadvocacia.adv.br</a>
+              <span style="font-size: 14px; color: #FFFFFF">Florianópolis · SC</span>
+              <span style="font-size: 14px; color: #BDE4DA">Atendimento online em todo o Brasil</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #89B0AF; margin-bottom: 18px">Redes sociais</div>
+            <div style="display: flex; gap: 14px">
+              <a href="#" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; transition: background 0.2s ease" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="#FFFFFF" stroke="none"></circle></svg>
+              </a>
+              <a href="#" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; transition: background 0.2s ease" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M4.98 3.5a2.49 2.49 0 11-.02 4.98 2.49 2.49 0 01.02-4.98zM3 9h4v12H3zM9.5 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.43-2.1 2.9V21h-3.97z"></path></svg>
+              </a>
+              <a href="#" aria-label="WhatsApp" style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; transition: background 0.2s ease" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L4 20l1-4.4A8.5 8.5 0 1121 11.5z"></path><path d="M9 9.5c.5 2.5 3 5 5.5 5.5l1-1.5 2 1"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.18); padding: 24px 0 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px">
+          <span style="font-size: 13px; color: #BDE4DA">Vanessa Vaz Marschallinger · OAB/SC 12.345</span>
+          <span style="font-size: 13px; color: #BDE4DA">© 2026 Todos os direitos reservados</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== MOBILE 375 ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Home · Mobile 375</div>
+  </div>
+  <div style="max-width: 1280px; margin: 0 auto 72px; display: flex; align-items: flex-start; gap: 40px">
+    <div data-screen-label="Home — Mobile 375" style="width: 375px; flex: 0 0 auto; background: #FFFFFF; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.10); position: relative">
+
+      <!-- NavBar mobile -->
+      <nav style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; background: #3D5C5F; border-bottom: 1px solid rgba(255,255,255,0.12); position: relative; z-index: 3">
+        <a href="Home.dc.html" style="display: inline-flex; align-items: center"><img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger" style="height: 38px; width: auto"></a>
+        <button onClick="{{toggleMenu}}" aria-label="Abrir menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 0" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" style="display: {{burgerDisplay}}"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" style="display: {{closeDisplay}}"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </nav>
+
+      <!-- Menu mobile aberto (overlay) -->
+      <div style="display: {{menuDisplay}}; position: absolute; top: 64px; left: 0; right: 0; z-index: 2; background: #FFFFFF; border-bottom: 1px solid #EDF1F0; box-shadow: 0 18px 30px rgba(17,17,17,0.12); flex-direction: column; padding: 12px 20px 24px; gap: 4px; animation: vvmFadeIn 0.2s ease">
+        <a href="Sobre.dc.html" style="font-size: 16px; font-weight: 500; color: #111111; text-decoration: none; padding: 13px 4px; border-bottom: 1px solid #F0F4F3" style-hover="color: #3D5C5F" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">Sobre</a>
+        <a href="Escritorio.dc.html" style="font-size: 16px; font-weight: 500; color: #111111; text-decoration: none; padding: 13px 4px; border-bottom: 1px solid #F0F4F3" style-hover="color: #3D5C5F" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">Escritório</a>
+        <a href="Servicos.dc.html" style="font-size: 16px; font-weight: 500; color: #111111; text-decoration: none; padding: 13px 4px; border-bottom: 1px solid #F0F4F3" style-hover="color: #3D5C5F" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">Serviços</a>
+        <a href="Blog.dc.html" style="font-size: 16px; font-weight: 500; color: #111111; text-decoration: none; padding: 13px 4px; border-bottom: 1px solid #F0F4F3" style-hover="color: #3D5C5F" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">Blog</a>
+        <a href="Contato.dc.html" style="font-size: 16px; font-weight: 500; color: #111111; text-decoration: none; padding: 13px 4px" style-hover="color: #3D5C5F" style-focus="outline: 2px solid #3D5C5F; outline-offset: 2px">Contato</a>
+        <a href="Contato.dc.html" style="display: block; text-align: center; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; text-decoration: none; padding: 15px 0; border-radius: 4px; margin-top: 14px" style-hover="background: #2F484B" style-focus="outline: 3px solid #89B0AF; outline-offset: 3px">Fale Comigo</a>
+      </div>
+
+      <!-- Hero mobile · 70vh -->
+      <section style="position: relative; height: 560px; overflow: hidden; background: #2F484B">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&amp;q=80" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: {{s0}}; transition: opacity 1.6s ease">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&amp;q=80" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: {{s1}}; transition: opacity 1.6s ease">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&amp;q=80" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: {{s2}}; transition: opacity 1.6s ease">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,32,34,0.40) 0%, rgba(18,32,34,0.58) 100%)"></div>
+        <div style="position: relative; height: 100%; padding: 0 24px; display: flex; flex-direction: column; justify-content: center">
+          <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px; line-height: 1.2; color: #FFFFFF; margin: 0 0 14px; text-wrap: pretty">Segurança para conquistar o benefício que é seu por direito.</h1>
+          <p style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.94); margin: 0 0 28px; text-wrap: pretty">Advocacia previdenciária especializada em INSS — aposentadorias, incapacidade, pensões e BPC/LOAS.</p>
+          <a href="Contato.dc.html" style="display: block; text-align: center; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; border: 1px solid rgba(255,255,255,0.45); text-decoration: none; padding: 16px 0; border-radius: 4px; letter-spacing: 0.04em" style-hover="background: #2F484B" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Fale Comigo</a>
+        </div>
+        <div style="position: absolute; bottom: 22px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px">
+          <button onClick="{{goTo0}}" aria-label="Slide 1" style="width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot0Bg}}; cursor: pointer; padding: 0"></button>
+          <button onClick="{{goTo1}}" aria-label="Slide 2" style="width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot1Bg}}; cursor: pointer; padding: 0"></button>
+          <button onClick="{{goTo2}}" aria-label="Slide 3" style="width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: {{dot2Bg}}; cursor: pointer; padding: 0"></button>
+        </div>
+      </section>
+
+      <!-- Quem é Vanessa mobile -->
+      <section style="background: #FFFFFF; padding: 56px 24px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 14px">Quem é Vanessa</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.25; color: #111111; margin: 0 0 18px; text-wrap: pretty">Ao seu lado em cada etapa, da análise do caso à decisão final.</h2>
+        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&amp;q=80" alt="Retrato profissional de Vanessa (placeholder)" style="width: 100%; height: 300px; object-fit: cover; object-position: center top; border-radius: 6px; display: block; margin-bottom: 20px">
+        <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0 0 14px; text-wrap: pretty">Sou Vanessa Vaz Marschallinger, advogada especializada em Direito Previdenciário. Atuo ao lado de quem teve o benefício negado, cortado ou reduzido pelo INSS.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: #333333; margin: 0 0 24px">Cada caso recebe análise individual: aqui você não é um número de protocolo.</p>
+        <a href="Sobre.dc.html" style="font-size: 15px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px" style-hover="color: #2F484B" style-focus="outline: 2px solid #3D5C5F; outline-offset: 4px">Conheça minha trajetória</a>
+      </section>
+
+      <!-- Áreas mobile (1 coluna) -->
+      <section style="background: #BDE4DA; padding: 56px 24px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px; text-align: center">Áreas de atuação</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.25; color: #111111; margin: 0 0 32px; text-align: center">Como posso ajudar você</h2>
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">Aposentadorias</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Por idade, tempo de contribuição e regras de transição.</p>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">Aposentadoria Especial</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Atividades insalubres ou perigosas, com prova técnica.</p>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">Benefícios por Incapacidade</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Auxílio-doença e invalidez, da perícia ao recurso.</p>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">BPC / LOAS</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Benefício assistencial para idosos e pessoas com deficiência.</p>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 9.5V20h14V9.5"></path><path d="M10 20v-6h4v6"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">Pensão por Morte</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Orientação completa para dependentes.</p>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 26px 24px; display: flex; gap: 18px; align-items: flex-start">
+            <div style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 10-2.3 6.3"></path><path d="M20 6v5h-5"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 6px">Revisão de Benefícios</h3>
+              <p style="font-size: 14.5px; line-height: 1.6; color: #444444; margin: 0">Reanálise de valores e correção de erros de cálculo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA mobile -->
+      <section style="position: relative; background: #3D5C5F; padding: 64px 24px; overflow: hidden">
+        <img src="assets/marcadagua-branco.png" alt="" style="position: absolute; right: -80px; bottom: -80px; height: 280px; width: auto; opacity: 0.08; pointer-events: none">
+        <div style="position: relative; text-align: center">
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px; line-height: 1.25; color: #FFFFFF; margin: 0 0 14px; text-wrap: pretty">Cada caso tem um caminho. Vamos encontrar o seu.</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: #BDE4DA; margin: 0 0 28px">Atendimento humano e individual, presencial ou online.</p>
+          <a href="Contato.dc.html" style="display: block; text-align: center; font-size: 15px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; text-decoration: none; padding: 16px 0; border-radius: 4px; letter-spacing: 0.04em" style-hover="background: #BDE4DA" style-focus="outline: 3px solid #BDE4DA; outline-offset: 3px">Agendar Consulta</a>
+        </div>
+      </section>
+
+      <!-- Blog mobile -->
+      <section style="background: #FFFFFF; padding: 56px 24px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Blog</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; line-height: 1.25; color: #111111; margin: 0 0 28px">Últimas publicações</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <a href="#" style="display: block; text-decoration: none; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&amp;q=80" alt="" style="width: 100%; height: 170px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 20px 20px 24px">
+              <span style="display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px">Aposentadoria</span>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 10px; text-wrap: pretty">Aposentadoria negada pelo INSS: o que fazer nos primeiros 30 dias</h3>
+              <div style="font-size: 13px; color: #3D5C5F">12 de maio de 2026</div>
+            </div>
+          </a>
+          <a href="#" style="display: block; text-decoration: none; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&amp;q=80" alt="" style="width: 100%; height: 170px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 20px 20px 24px">
+              <span style="display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px">Perícia Médica</span>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 10px; text-wrap: pretty">Como se preparar para a perícia médica do INSS</h3>
+              <div style="font-size: 13px; color: #3D5C5F">28 de abril de 2026</div>
+            </div>
+          </a>
+          <a href="#" style="display: block; text-decoration: none; border: 1px solid #E4EAE9; border-radius: 8px; overflow: hidden" style-focus="outline: 3px solid #89B0AF; outline-offset: 2px">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&amp;q=80" alt="" style="width: 100%; height: 170px; object-fit: cover; display: block; background: #BDE4DA">
+            <div style="padding: 20px 20px 24px">
+              <span style="display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5C5F; background: #BDE4DA; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px">BPC / LOAS</span>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.4; color: #111111; margin: 0 0 10px; text-wrap: pretty">BPC/LOAS: quem tem direito e como comprovar a renda familiar</h3>
+              <div style="font-size: 13px; color: #3D5C5F">9 de abril de 2026</div>
+            </div>
+          </a>
+        </div>
+        <a href="#" style="display: inline-block; margin-top: 24px; font-size: 15px; font-weight: 600; color: #3D5C5F; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px" style-hover="color: #2F484B" style-focus="outline: 2px solid #3D5C5F; outline-offset: 4px">Ver todos os artigos</a>
+      </section>
+
+      <!-- Footer mobile -->
+      <footer style="background: #3D5C5F; padding: 48px 24px 0">
+        <img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger" style="height: 48px; width: auto; margin-bottom: 16px">
+        <p style="font-size: 14px; line-height: 1.7; color: #BDE4DA; margin: 0 0 32px">Advocacia previdenciária com atendimento humano, próximo e especializado.</p>
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px">
+          <a href="Sobre.dc.html" style="font-size: 15px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Sobre</a>
+          <a href="Escritorio.dc.html" style="font-size: 15px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Escritório</a>
+          <a href="Servicos.dc.html" style="font-size: 15px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Serviços</a>
+          <a href="Blog.dc.html" style="font-size: 15px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Blog</a>
+          <a href="Contato.dc.html" style="font-size: 15px; color: #FFFFFF; text-decoration: none" style-hover="text-decoration: underline" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">Contato</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px">
+          <a href="mailto:contato@vvmadvocacia.adv.br" style="font-size: 14px; color: #FFFFFF; text-decoration: none" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">contato@vvmadvocacia.adv.br</a>
+          <span style="font-size: 14px; color: #FFFFFF">Florianópolis · SC</span>
+        </div>
+        <div style="display: flex; gap: 14px; margin-bottom: 36px">
+          <a href="#" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="#FFFFFF" stroke="none"></circle></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M4.98 3.5a2.49 2.49 0 11-.02 4.98 2.49 2.49 0 01.02-4.98zM3 9h4v12H3zM9.5 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.43-2.1 2.9V21h-3.97z"></path></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%" style-hover="background: rgba(255,255,255,0.12)" style-focus="outline: 2px solid #BDE4DA; outline-offset: 3px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L4 20l1-4.4A8.5 8.5 0 1121 11.5z"></path><path d="M9 9.5c.5 2.5 3 5 5.5 5.5l1-1.5 2 1"></path></svg>
+          </a>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.18); padding: 20px 0 24px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12.5px; color: #BDE4DA">Vanessa Vaz Marschallinger · OAB/SC 12.345</span>
+          <span style="font-size: 12.5px; color: #BDE4DA">© 2026 Todos os direitos reservados</span>
+        </div>
+      </footer>
+    </div>
+
+    <div data-chrome="1" style="flex: 1; background: #FFFFFF; border-radius: 10px; padding: 28px 30px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 14px">Notas · Mobile</div>
+      <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.9; color: #333333">
+        <li>Hero em 70vh (≈560px num viewport de 812px), headline 32px conforme a hierarquia do briefing.</li>
+        <li>Menu hambúrguer funcional — toque no ícone para ver o estado aberto, com CTA "Fale Comigo" dentro do painel.</li>
+        <li>Áreas de atuação em 1 coluna, formato lista com ícone à esquerda para reduzir rolagem.</li>
+        <li>Todos os alvos de toque com no mínimo 44px.</li>
+        <li>O carrossel é sincronizado com o desktop (mesmo estado) — transição suave de 1,6s a cada 5s.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== ESTADOS INTERATIVOS ===================== -->
+  <div data-chrome="1" style="max-width: 1280px; margin: 0 auto">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3D5C5F; margin-bottom: 12px">Estados interativos</div>
+  </div>
+  <div data-screen-label="Home — Estados interativos" style="max-width: 1280px; margin: 0 auto; background: #FFFFFF; border-radius: 10px; padding: 40px 44px 48px; box-shadow: 0 2px 14px rgba(0,0,0,0.10); display: flex; flex-direction: column; gap: 40px">
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Botão primário (fundo claro)</div>
+      <div style="display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em">Fale Comigo</span>
+          <span style="font-size: 12px; color: #666666">Padrão</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #2F484B; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em">Fale Comigo</span>
+          <span style="font-size: 12px; color: #666666">Hover</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #3D5C5F; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em; outline: 3px solid #89B0AF; outline-offset: 3px">Fale Comigo</span>
+          <span style="font-size: 12px; color: #666666">Foco (teclado)</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #8A9695; background: #DDE4E3; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em; cursor: not-allowed">Fale Comigo</span>
+          <span style="font-size: 12px; color: #666666">Desabilitado</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Botão sobre teal escuro</div>
+      <div style="background: #3D5C5F; border-radius: 8px; padding: 28px; display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em">Agendar Consulta</span>
+          <span style="font-size: 12px; color: #BDE4DA">Padrão</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #3D5C5F; background: #BDE4DA; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em">Agendar Consulta</span>
+          <span style="font-size: 12px; color: #BDE4DA">Hover</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+          <span style="display: inline-block; font-size: 14px; font-weight: 600; color: #3D5C5F; background: #FFFFFF; padding: 13px 28px; border-radius: 4px; letter-spacing: 0.03em; outline: 3px solid #BDE4DA; outline-offset: 3px">Agendar Consulta</span>
+          <span style="font-size: 12px; color: #BDE4DA">Foco (teclado)</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Link de navegação</div>
+      <div style="display: flex; gap: 48px; align-items: flex-end; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 14px; font-weight: 500; color: #111111">Serviços</span>
+          <span style="font-size: 12px; color: #666666">Padrão</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 14px; font-weight: 500; color: #3D5C5F; text-decoration: underline; text-underline-offset: 6px">Serviços</span>
+          <span style="font-size: 12px; color: #666666">Hover</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 14px; font-weight: 500; color: #111111; outline: 2px solid #3D5C5F; outline-offset: 4px">Serviços</span>
+          <span style="font-size: 12px; color: #666666">Foco (teclado)</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-size: 14px; font-weight: 600; color: #3D5C5F; border-bottom: 2px solid #3D5C5F; padding-bottom: 4px">Serviços</span>
+          <span style="font-size: 12px; color: #666666">Ativo (página atual)</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Card de área de atuação</div>
+      <div style="background: #BDE4DA; border-radius: 8px; padding: 28px; display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 290px">
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 28px 26px">
+            <div style="width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 16px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 8px">Aposentadorias</h3>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Por idade, tempo de contribuição e transição.</p>
+          </div>
+          <span style="font-size: 12px; color: #3D5C5F">Padrão</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 290px">
+          <div style="background: #FFFFFF; border-radius: 8px; padding: 28px 26px; transform: translateY(-5px); box-shadow: 0 14px 30px rgba(61,92,95,0.18)">
+            <div style="width: 46px; height: 46px; border-radius: 50%; background: #BDE4DA; display: flex; align-items: center; justify-content: center; margin-bottom: 16px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            </div>
+            <h3 style="font-size: 18px; font-weight: 600; color: #111111; margin: 0 0 8px">Aposentadorias</h3>
+            <p style="font-size: 14px; line-height: 1.6; color: #444444; margin: 0">Por idade, tempo de contribuição e transição.</p>
+          </div>
+          <span style="font-size: 12px; color: #3D5C5F">Hover — eleva 5px + sombra teal</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 18px">Indicadores do carrossel</div>
+      <div style="background: #3D5C5F; border-radius: 8px; padding: 28px; display: flex; gap: 48px; align-items: flex-end; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start">
+          <span style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: rgba(255,255,255,0.18); display: inline-block"></span>
+          <span style="font-size: 12px; color: #BDE4DA">Inativo</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start">
+          <span style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: rgba(255,255,255,0.65); display: inline-block"></span>
+          <span style="font-size: 12px; color: #BDE4DA">Hover</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start">
+          <span style="width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #FFFFFF; background: #FFFFFF; display: inline-block"></span>
+          <span style="font-size: 12px; color: #BDE4DA">Ativo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx: 0, menuOpen: false };
+
+  componentDidMount() {
+    this.startTimer();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  startTimer() {
+    clearInterval(this.timer);
+    this.timer = setInterval(() => {
+      this.setState((s) => ({ idx: (s.idx + 1) % 3 }));
+    }, 5000);
+  }
+
+  goTo(n) {
+    this.setState({ idx: n });
+    this.startTimer();
+  }
+
+  renderVals() {
+    const i = this.state.idx;
+    const dot = (on) => (on ? '#FFFFFF' : 'rgba(255,255,255,0.18)');
+    return {
+      s0: i === 0 ? 1 : 0,
+      s1: i === 1 ? 1 : 0,
+      s2: i === 2 ? 1 : 0,
+      dot0Bg: dot(i === 0),
+      dot1Bg: dot(i === 1),
+      dot2Bg: dot(i === 2),
+      goTo0: () => this.goTo(0),
+      goTo1: () => this.goTo(1),
+      goTo2: () => this.goTo(2),
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      menuDisplay: this.state.menuOpen ? 'flex' : 'none',
+      burgerDisplay: this.state.menuOpen ? 'none' : 'block',
+      closeDisplay: this.state.menuOpen ? 'block' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>

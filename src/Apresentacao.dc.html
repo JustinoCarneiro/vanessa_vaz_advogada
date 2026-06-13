@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @page { size: A4 landscape; margin: 0; }
+    html, body { margin: 0; padding: 0; background: #FFFFFF; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    * { box-sizing: border-box; }
+    /* esconder anotações de design e prancha de estados */
+    [data-chrome] { display: none !important; }
+    [data-screen-label*="Estados"] { display: none !important; }
+    /* neutralizar o canvas cinza de revisão */
+    [data-root] { background: #FFFFFF !important; min-height: 0 !important; padding: 28px 0 !important; }
+    /* cada frame centralizado, com um filete sutil */
+    [data-screen-label] { margin: 0 auto !important; box-shadow: 0 0 0 1px #E4EAE9 !important; }
+    [data-screen-label*="Desktop"] { zoom: 0.80; }
+    /* centralizar o frame mobile dentro do wrapper flex */
+    [data-root] div:has(> [data-screen-label*="Mobile"]) { justify-content: center !important; }
+    /* paginação para impressão / PDF */
+    @media print {
+      [data-cover] { break-after: page; }
+      [data-screen-label] { break-before: page; break-inside: avoid; }
+      *, *::before, *::after {
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        transition-duration: 0s !important;
+      }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF">
+  <!-- Capa -->
+  <div data-cover="1" style="background: #3D5C5F; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 80px 40px; text-align: center">
+    <img src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária" style="height: 110px; width: auto; margin-bottom: 18px">
+    <div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 44px; color: #FFFFFF; line-height: 1.1; margin: 0">Protótipo do site</div>
+    <div style="font-family: Montserrat, sans-serif; font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #BDE4DA; margin: 0">Fase 2b · Layout · Desktop &amp; Mobile</div>
+    <div style="font-family: Montserrat, sans-serif; font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 24px">Vanessa Vaz Marschallinger · OAB/SC 12.345</div>
+  </div>
+
+  <dc-import name="Home" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Blog" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Artigo" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Servicos" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Contato" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Sobre" hint-size="100%,1600px"></dc-import>
+  <dc-import name="Escritorio" hint-size="100%,1600px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

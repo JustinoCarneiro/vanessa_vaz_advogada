@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanessa Vaz Marschallinger — Protótipo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Montserrat', sans-serif; background: #3D5C5F; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px 24px; }
+  .logo { height: 96px; width: auto; margin-bottom: 36px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 40px; line-height: 1.15; text-align: center; margin-bottom: 10px; }
+  .sub { font-size: 15px; color: #BDE4DA; text-align: center; margin-bottom: 48px; letter-spacing: 0.02em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 220px); gap: 16px; width: 100%; max-width: 700px; }
+  a.card { display: flex; flex-direction: column; gap: 6px; text-decoration: none; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; padding: 22px 22px; transition: background 0.2s ease, transform 0.2s ease; }
+  a.card:hover { background: rgba(189,228,218,0.16); transform: translateY(-3px); }
+  a.card .n { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #BDE4DA; }
+  a.card .t { font-size: 16px; font-weight: 600; color: #fff; }
+  a.card .d { font-size: 12.5px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  .foot { margin-top: 44px; font-size: 12.5px; color: rgba(255,255,255,0.6); text-align: center; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; max-width: 360px; } }
+</style>
+</head>
+<body>
+  <img class="logo" src="assets/logo-teal.png" alt="Vanessa Vaz Marschallinger — Advocacia Previdenciária">
+  <h1>Protótipo do site</h1>
+  <div class="sub">Fase 2b · Layout · Desktop &amp; Mobile</div>
+  <div class="grid">
+    <a class="card" href="Home.dc.html"><span class="n">01</span><span class="t">Home</span><span class="d">Página inicial</span></a>
+    <a class="card" href="Blog.dc.html"><span class="n">02</span><span class="t">Blog</span><span class="d">Listagem de artigos</span></a>
+    <a class="card" href="Artigo.dc.html"><span class="n">03</span><span class="t">Artigo</span><span class="d">Post individual</span></a>
+    <a class="card" href="Servicos.dc.html"><span class="n">04</span><span class="t">Serviços</span><span class="d">Áreas de atuação</span></a>
+    <a class="card" href="Contato.dc.html"><span class="n">05</span><span class="t">Contato</span><span class="d">Formulário</span></a>
+    <a class="card" href="Sobre.dc.html"><span class="n">06</span><span class="t">Sobre Mim</span><span class="d">Trajetória</span></a>
+    <a class="card" href="Escritorio.dc.html"><span class="n">07</span><span class="t">Escritório</span><span class="d">Missão e valores</span></a>
+  </div>
+  <div class="foot">Vanessa Vaz Marschallinger · OAB/SC 12.345 — protótipo para revisão</div>
+</body>
+</html>

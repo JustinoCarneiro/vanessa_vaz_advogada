@@ -3,18 +3,8 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import type { SiteSettingsServico } from '@/lib/api'
-import { SERVICOS_ICONS } from './servicosIcons'
+import { getIcone } from './servicosIcons'
 
-const ICONS = SERVICOS_ICONS
-
-const IDS = [
-  'aposentadorias',
-  'aposentadoria-especial',
-  'beneficios-incapacidade',
-  'bpc-loas',
-  'pensao-por-morte',
-  'revisao-de-beneficios',
-]
 
 // ─── Componentes internos ──────────────────────────────────────────────────────
 
@@ -104,8 +94,8 @@ type Props = {
 
 export function ServicosCards({ cmsServices }: Props) {
   const services = (cmsServices ?? []).map((s, i) => ({
-    id: IDS[i],
-    icon: ICONS[i],
+    id: s.id ?? String(i),
+    icon: getIcone(s.icone),
     titulo: s.titulo,
     descricao: s.descricao,
     itens: s.itens ?? [],

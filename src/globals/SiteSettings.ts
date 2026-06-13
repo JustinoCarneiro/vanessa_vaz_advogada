@@ -1,4 +1,5 @@
 import type { GlobalConfig } from 'payload'
+import { ICONES_OPTIONS } from '@/components/servicos/servicosIcons'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
@@ -10,7 +11,7 @@ export const SiteSettings: GlobalConfig = {
       type: 'upload',
       relationTo: 'media',
       admin: {
-        description: 'Foto da advogada exibida na página "Sobre Mim".',
+        description: 'Foto da advogada exibida na página "Sobre Mim" e na home.',
       },
     },
     {
@@ -26,16 +27,24 @@ export const SiteSettings: GlobalConfig = {
       name: 'servicos',
       label: 'Serviços',
       type: 'array',
-      minRows: 6,
+      minRows: 1,
       maxRows: 6,
       admin: {
-        description:
-          'Edite título, descrição e itens de cada serviço. Mantenha a ordem: ' +
-          '1 Aposentadorias · 2 Aposentadoria Especial · 3 Incapacidade · ' +
-          '4 BPC/LOAS · 5 Pensão por Morte · 6 Revisão.',
+        description: 'Edite título, descrição, ícone e itens de cada serviço.',
         initCollapsed: true,
       },
       fields: [
+        {
+          name: 'icone',
+          label: 'Ícone',
+          type: 'select',
+          required: true,
+          defaultValue: 'escudo',
+          options: ICONES_OPTIONS,
+          admin: {
+            description: 'Escolha o ícone que representa este serviço.',
+          },
+        },
         {
           name: 'titulo',
           label: 'Título',

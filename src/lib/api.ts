@@ -104,6 +104,7 @@ export async function getCategories() {
 // Tipos mínimos para os campos do Global (evita depender do generate:types)
 export type SiteSettingsMedia = { id: number; url?: string | null }
 export type SiteSettingsServico = {
+  icone?: string | null
   titulo: string
   descricao: string
   itens?: Array<{ item: string; id?: string }>

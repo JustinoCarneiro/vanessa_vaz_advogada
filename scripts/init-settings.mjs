@@ -38,6 +38,7 @@ async function login() {
 
 const SERVICOS = [
   {
+    icone: 'relogio',
     titulo: 'Aposentadorias',
     descricao:
       'Análise completa do histórico contributivo para identificar a melhor regra — por idade, tempo de contribuição ou transição — antes de qualquer protocolo. O pedido certo, feito na hora certa, evita anos de espera.',
@@ -48,6 +49,7 @@ const SERVICOS = [
     ],
   },
   {
+    icone: 'escudo',
     titulo: 'Aposentadoria Especial',
     descricao:
       'Reconhecimento do tempo trabalhado em condições insalubres ou perigosas — saúde, indústria, transporte, segurança. A diferença entre a negativa e a concessão costuma estar na qualidade da prova técnica.',
@@ -58,6 +60,7 @@ const SERVICOS = [
     ],
   },
   {
+    icone: 'medico',
     titulo: 'Benefícios por Incapacidade',
     descricao:
       'Auxílio-doença e aposentadoria por invalidez: preparação para a perícia médica, prorrogação de benefício e contestação de alta indevida — para que a doença não vire também um problema de renda.',
@@ -68,6 +71,7 @@ const SERVICOS = [
     ],
   },
   {
+    icone: 'pessoa',
     titulo: 'BPC / LOAS',
     descricao:
       'Benefício assistencial para pessoas com deficiência e idosos a partir de 65 anos em situação de baixa renda. Acompanhamento desde o CadÚnico até a via judicial, quando o INSS nega indevidamente.',
@@ -78,6 +82,7 @@ const SERVICOS = [
     ],
   },
   {
+    icone: 'familia',
     titulo: 'Pensão por Morte',
     descricao:
       'Orientação completa aos dependentes — cônjuge, filhos, companheiros em união estável — com a sensibilidade que o momento exige e a atenção técnica que os prazos impõem.',
@@ -88,6 +93,7 @@ const SERVICOS = [
     ],
   },
   {
+    icone: 'setas',
     titulo: 'Revisão de Benefícios',
     descricao:
       'Reanálise do cálculo do benefício já concedido: vínculos não computados, salários ignorados e erros de fator. Quando o INSS erra na conta, a diferença é sua por direito.',

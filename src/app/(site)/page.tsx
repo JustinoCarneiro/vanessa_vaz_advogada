@@ -9,7 +9,7 @@ import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Container } from '@/components/ui/Container'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { getPosts, getSiteSettings, extractMediaUrl } from '@/lib/api'
-import { SERVICOS_ICONS } from '@/components/servicos/servicosIcons'
+import { getIcone } from '@/components/servicos/servicosIcons'
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SERVER_URL?.replace(/\/$/, '') ?? 'https://vvmadvocacia.adv.br'
@@ -62,8 +62,8 @@ export default async function HomePage() {
 
   const settings = await getSiteSettings()
   const fotoUrl = extractMediaUrl(settings.sobreFoto)
-  const services = (settings.servicos ?? []).map((s, i) => ({
-    icon: SERVICOS_ICONS[i],
+  const services = (settings.servicos ?? []).map((s) => ({
+    icon: getIcone(s.icone),
     title: s.titulo,
     description: s.descricao,
   }))

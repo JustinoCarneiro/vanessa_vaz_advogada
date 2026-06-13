@@ -89,8 +89,8 @@ A tela mais importante. É onde o cliente potencial chega do Google.
 **Seções obrigatórias (de cima para baixo):**
 1. **NavBar** — logo horizontal + links (Sobre | Escritório | Serviços | Blog | Contato) + CTA "Fale Comigo" em destaque
 2. **Hero com carrossel** — fotos de Vanessa em ambiente profissional, transição suave. Sobre as fotos: overlay escuro leve + headline em Petita + subtítulo em Montserrat + botão CTA. Altura: 100vh desktop, 70vh mobile.
-3. **Quem é Vanessa** — foto profissional à direita, texto de apresentação à esquerda (ou invertido). Breve, direto.
-4. **Áreas de atuação** — cards com ícone + título + 2 linhas de descrição. Grid 3 colunas desktop, 1 coluna mobile. Fundo menta.
+3. **Quem é Vanessa** — foto profissional à direita, texto de apresentação à esquerda (ou invertido). Breve, direto. *(foto gerenciada no CMS — layout usa `object-fit: cover` para qualquer proporção)*
+4. **Áreas de atuação** — cards com ícone + título + 2 linhas de descrição. Grid 3 colunas desktop, 1 coluna mobile. Fundo menta. *(conteúdo gerenciado no CMS — 1 a 6 cards possíveis)*
 5. **Chamada para contato** — seção com fundo teal escuro, texto em branco, botão de destaque "Agendar Consulta"
 6. **Últimos posts do blog** — 3 cards dos posts mais recentes com imagem, categoria, título e link
 7. **Footer** — logo branco, navegação, email de contato, redes sociais, OAB, copyright
@@ -126,6 +126,11 @@ Onde a decisão de contratar acontece.
 - Cards de serviço expandidos: ícone + nome do serviço + descrição detalhada + CTA individual "Saiba mais" ou "Fale sobre este caso"
 - Seção de diferencial / por que escolher Vanessa
 - CTA final para contato
+
+> **Nota de implementação:** os cards são gerados dinamicamente a partir do
+> global `SiteSettings.servicos` no CMS. Cada serviço tem um ícone SVG
+> selecionável (20 opções disponíveis). O layout precisa funcionar com qualquer
+> quantidade entre 1 e 6 cards.
 
 ### 5. CONTATO — `/contato`
 Onde a conversão acontece.

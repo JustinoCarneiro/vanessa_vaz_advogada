@@ -2,8 +2,10 @@
 
 ## Contexto
 Site institucional + blog com CMS para advogada previdenciária.
-Stack: Next.js 14 (App Router) + Payload CMS 2.x + PostgreSQL + Tailwind CSS.
-Deploy: Vercel. Domínio e hospedagem: cliente contrata e paga.
+Stack: Next.js 15.4 (App Router) + Payload CMS 3.x + PostgreSQL (Neon) + Tailwind CSS.
+Deploy: Vercel (projeto `projeto-vanessa`). URL de produção: `https://projeto-vanessa-two.vercel.app`.
+Uploads de mídia: Vercel Blob (`@payloadcms/storage-vercel-blob`, CDN público).
+Domínio e hospedagem: cliente contrata e paga.
 
 > ⚠️ RISCO DE PRAZO REGISTRADO
 > Escopo calculado em 16 dias comprimido em 7 dias a pedido do dev.
@@ -108,8 +110,7 @@ Tailwind + CSS custom properties. Componentes atômicos prontos.
 
 ### M03 · Páginas institucionais
 
-**Objetivo:** 5 páginas estáticas (home com carrossel + 3 páginas fixas + contato)
-com conteúdo fictício substituível, responsivas e acessíveis AA.
+**Objetivo:** páginas responsivas e acessíveis AA, conteúdo gerenciado via CMS.
 
 **Rotas geradas:**
 - `/` — Home com hero carrossel
@@ -123,8 +124,14 @@ com conteúdo fictício substituível, responsivas e acessíveis AA.
 - `<ServiceCard>` — ícone + título + descrição + CTA
 - `<AboutSection>` — foto + bio + formação
 
-**Sem contrato de API** — páginas estáticas no MVP.
-Conteúdo real fornecido por Vanessa antes da Fase 4.
+**CMS-conectado (via SiteSettings global):**
+- Foto "Quem é Vanessa" na home → campo `sobreFoto`
+- Foto do escritório → campo `escritorioFoto`
+- Cards de Áreas de Atuação na home → array `servicos` (título + descrição + ícone)
+- Os mesmos dados `servicos` alimentam a página `/servicos`
+
+**Foto segura:** `object-fit: cover` + `object-position: top` garante que qualquer
+proporção de imagem enviada pela cliente não quebre o layout.
 
 ---
 
@@ -207,14 +214,52 @@ Response 200:
 
 ---
 
-### M05 · CMS Payload — Coleções
+### M05 · CMS Payload — Coleções + Global SiteSettings
 
-**Objetivo:** schema das coleções no Payload CMS que alimentam M03, M04 e M06.
+**Objetivo:** schema das coleções e do global no Payload CMS que alimentam M03, M04 e M06.
 
-**Coleção: Posts**
+**Global: SiteSettings** (`src/globals/SiteSettings.ts`)
+```typescript
+{
+  slug:  'site-settings',
+  label: 'Fotos e Serviços',
+  admin: { group: 'Configurações' },
+  fields: [
+    { name: 'sobreFoto',     type: 'upload', relationTo: 'media' },
+    { name: 'escritorioFoto', type: 'upload', relationTo: 'media' },
+    {
+      name: 'servicos', type: 'array', minRows: 1, maxRows: 6,
+      fields: [
+        { name: 'icone',    type: 'select', options: ICONES_OPTIONS },  // 20 opções
+        { name: 'titulo',   type: 'text',     required: true },
+        { name: 'descricao', type: 'textarea', required: true },
+        { name: 'itens',    type: 'array', fields: [{ name: 'item', type: 'text' }] }
+      ]
+    }
+  ]
+}
+```
+
+**Ícones disponíveis (20):** relogio · escudo · coracao · pessoa · casa · setas ·
+balanca · calendario · documento · estrela · maos · familia · medico · maleta ·
+dinheiro · cadeado · conquista · telefone · check · atencao
+
+Mapeados em `src/components/servicos/servicosIcons.tsx` → `getIcone(slug)` com
+fallback para `'escudo'`. `ICONES_OPTIONS` importado pelo SiteSettings para o select.
+
+**Dashboard — organização por grupos:**
+| Grupo | Itens |
+|---|---|
+| Blog | Artigos do Blog · Categorias do Blog |
+| Contato | Mensagens de Contato |
+| Configurações | Fotos e Serviços · Arquivos e Imagens |
+| (oculto) | Administradores (hidden para usuário logado) |
+
+**Coleção: Posts** (`src/collections/Posts.ts`)
 ```typescript
 {
   slug:        'posts',
+  admin:       { group: 'Blog' },
   fields: [
     { name: 'title',       type: 'text',         required: true },
     { name: 'slug',        type: 'text',         unique: true, index: true },
@@ -226,14 +271,15 @@ Response 200:
     { name: 'meta',        type: 'group',        fields: [title, description] },
     { name: 'publishedAt', type: 'date' }
   ],
-  access: { read: ({ doc }) => doc?.status === 'published' }  // público só publicado
+  access: { read: ({ doc }) => doc?.status === 'published' }
 }
 ```
 
-**Coleção: Categories**
+**Coleção: Categories** (`src/collections/Categories.ts`)
 ```typescript
 {
-  slug: 'categories',
+  slug:  'categories',
+  admin: { group: 'Blog' },
   fields: [
     { name: 'name',        type: 'text',     required: true },
     { name: 'slug',        type: 'text',     unique: true },
@@ -242,15 +288,16 @@ Response 200:
 }
 ```
 
-**Coleção: ContactMessages**
+**Coleção: ContactMessages** (`src/collections/ContactMessages.ts`)
 ```typescript
 {
-  slug: 'contact-messages',
+  slug:  'contact-messages',
+  admin: { group: 'Contato' },
   fields: [
-    { name: 'name',    type: 'text',   required: true },
-    { name: 'email',   type: 'email',  required: true },
+    { name: 'name',    type: 'text',     required: true },
+    { name: 'email',   type: 'email',    required: true },
     { name: 'phone',   type: 'text' },
-    { name: 'subject', type: 'text',   required: true },
+    { name: 'subject', type: 'text',     required: true },
     { name: 'message', type: 'textarea', required: true },
     { name: 'read',    type: 'checkbox', defaultValue: false }
   ],
@@ -258,15 +305,37 @@ Response 200:
 }
 ```
 
-**Coleção: Media** (upload de imagens)
+**Coleção: Media** (`src/collections/Media.ts`)
 ```typescript
 {
   slug:   'media',
-  upload: { staticURL: '/media', mimeTypes: ['image/*'] }
+  admin:  { group: 'Configurações' },
+  upload: {
+    mimeTypes:  ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'],
+    imageSizes: [thumbnail(400×300), card(900×600), hero(1800×auto)],
+    // Em produção: arquivos enviados para Vercel Blob (CDN direto)
+  }
 }
 ```
 
 **Sem contrato de API externo** — Payload expõe `/api/*` automaticamente.
+
+---
+
+### Padrão de migração de schema (CRÍTICO)
+
+`push: true` no `postgresAdapter` sincroniza o schema **em runtime**, mas o
+`next build` executa queries SSG **antes** do Payload inicializar. Qualquer nova
+coluna em tabela existente precisa ser aplicada manualmente antes do deploy:
+
+```sql
+-- Exemplo: adicionar coluna 'icone' à tabela de serviços
+ALTER TABLE site_settings_servicos ADD COLUMN IF NOT EXISTS icone varchar;
+```
+
+Executar via painel SQL do Neon (ou `psql`), depois fazer redeploy na Vercel.
+Nunca adicionar campo novo e fazer deploy em um único passo — o build vai falhar
+com erro PostgreSQL 42703 (`column does not exist`).
 
 ---
 
@@ -322,6 +391,23 @@ CONTACT_EMAIL_TO=vanessavaz8@gmail.com
 - `next/font` para Montserrat (Petita via self-hosted se não estiver no Google Fonts)
 
 **Sem contrato de API** — implementação via Next.js Metadata API.
+
+---
+
+---
+
+### Scripts de dados (package.json)
+
+| Script | O que faz |
+|---|---|
+| `npm run seed` | Popula posts/categorias de exemplo no ambiente local |
+| `npm run seed:prod` | Mesmo, em produção |
+| `npm run init-settings` | Cria/atualiza o SiteSettings com os 6 serviços padrão (local) |
+| `npm run init-settings:prod` | Mesmo, em produção |
+| `npm run upload-fotos:prod` | Baixa 2 fotos stock Unsplash e vincula ao SiteSettings (produção) |
+
+> Scripts de produção lêem `PLAYWRIGHT_ADMIN_EMAIL` e `PLAYWRIGHT_ADMIN_PASSWORD`
+> do `.env.local`. Nunca commitar essas variáveis.
 
 ---
 

@@ -20,7 +20,7 @@ via painel intuitivo.
 | Ator | Papel | Acesso |
 |---|---|---|
 | Visitante | Lê o site, lê o blog, envia formulário de contato | Público, sem login |
-| Vanessa (Admin) | Publica e edita posts, gerencia categorias, visualiza mensagens de contato | Painel Payload CMS — login com email/senha |
+| Vanessa (Admin) | Publica e edita posts, gerencia categorias, visualiza mensagens, atualiza fotos e serviços | Painel Payload CMS — login com email/senha |
 
 ---
 
@@ -39,6 +39,11 @@ via painel intuitivo.
   imagens no carrossel (next/image obrigatório)
 - A home deve apresentar: hero com carrossel · resumo de quem é Vanessa ·
   áreas de atuação em destaque · chamada para contato · link para o blog
+
+**Conteúdo gerenciado via CMS (SiteSettings global):**
+- Foto "Quem é Vanessa" na home → campo `sobreFoto` no painel
+- Cards de áreas de atuação → array `servicos` (título + descrição + ícone selecionável)
+- Layout seguro com `object-fit: cover` — qualquer proporção de foto funciona sem quebrar
 
 ### H1.2 — Página Sobre Mim
 > Como visitante, quero conhecer a trajetória e formação de Vanessa,
@@ -67,6 +72,11 @@ via painel intuitivo.
   serviços com descrição de cada um
 - Cada serviço deve ter texto suficiente para indexação semântica pelo Google
 - Deve haver CTA (chamada para ação) para contato em cada serviço
+
+**Conteúdo gerenciado via CMS:**
+- Lista de serviços lida do global `SiteSettings.servicos` (mesmo array da home)
+- Cada serviço tem: ícone (select de 20 opções), título, descrição, bullets opcionais
+- Vanessa edita tudo sem ajuda técnica no painel → Configurações → Fotos e Serviços
 
 ---
 
@@ -111,6 +121,12 @@ via painel intuitivo.
   não aparece para visitantes
 - Dado que publico o artigo, quando acesso /blog, então o artigo aparece na listagem
 - O editor rich text deve ter botão de embed para YouTube e suporte a tabelas
+
+**Painel otimizado para Vanessa:**
+- Itens agrupados por contexto: Blog · Contato · Configurações
+- Coleção Administradores oculta (Vanessa não precisa ver)
+- Labels em português com descrições de ajuda em cada campo
+- Uploads de foto com orientação de dimensão mínima e máximo de 5 MB
 
 ### H2.4 — Gerenciamento de categorias (Vanessa)
 > Como Vanessa, quero criar e editar categorias,
@@ -187,6 +203,26 @@ via painel intuitivo.
 - Pipeline CI/CD configurado via Vercel (integração com GitHub)
 - Variáveis de ambiente configuradas no painel Vercel (nunca no repositório)
 - Preview deployments automáticos para branches de feature
+
+### H5.2 — Migração de schema sem downtime
+> Como dev, quero que novas colunas no banco sejam aplicadas antes do deploy,
+> para que o build SSG não quebre por coluna inexistente.
+
+**Critérios de aceite:**
+- Qualquer novo campo em tabela existente do Payload é adicionado via SQL direto
+  no painel Neon (`ALTER TABLE … ADD COLUMN IF NOT EXISTS`) antes do redeploy
+- `push: true` no `postgresAdapter` cobre apenas campos em tabelas novas (runtime)
+- O error PostgreSQL 42703 (`column does not exist`) durante build é sinal de que
+  a migração manual foi esquecida — nunca ignorar
+
+### H5.3 — Uploads de mídia em produção
+> Como Vanessa, quero que as fotos que faço upload fiquem disponíveis imediatamente,
+> sem precisar de redeploy.
+
+**Critérios de aceite:**
+- Uploads via painel CMS vão para Vercel Blob (CDN público direto)
+- Plugin `@payloadcms/storage-vercel-blob` ativo somente quando `BLOB_READ_WRITE_TOKEN` existe
+- Fotos servidas por URL permanente do Blob CDN (não proxiadas pelo Next.js)
 
 ---
 

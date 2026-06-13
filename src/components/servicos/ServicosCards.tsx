@@ -184,7 +184,7 @@ export function ServicosCards() {
     const el = scrollRef.current
     if (!el) return
     const card = el.children[index] as HTMLElement
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+    el.scrollTo({ left: card.offsetLeft - 40, behavior: 'smooth' })
     setCurrent(index)
   }
 
@@ -192,7 +192,7 @@ export function ServicosCards() {
     const el = scrollRef.current
     if (!el) return
     const cards = Array.from(el.children) as HTMLElement[]
-    const scrollLeft = el.scrollLeft
+    const scrollLeft = el.scrollLeft + 40
     let nearestIdx = 0
     let minDist = Infinity
     cards.forEach((card, i) => {
@@ -212,11 +212,11 @@ export function ServicosCards() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-7 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden -mx-5 px-5 pb-2"
-          style={{ scrollbarWidth: 'none' }}
+          className="flex gap-7 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden -mx-5 pb-2"
+          style={{ scrollbarWidth: 'none', paddingLeft: '40px', paddingRight: '40px', scrollPaddingLeft: '40px' }}
         >
           {services.map((s) => (
-            <Card key={s.id} {...s} className="snap-start shrink-0 w-[calc(100vw-80px)] sm:w-[calc(65vw-24px)]" />
+            <Card key={s.id} {...s} className="snap-start shrink-0 w-[calc(100vw-80px)]" />
           ))}
         </div>
 

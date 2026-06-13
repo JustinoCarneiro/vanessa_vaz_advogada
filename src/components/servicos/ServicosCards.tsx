@@ -36,71 +36,6 @@ const IDS = [
   'revisao-de-beneficios',
 ]
 
-// ─── Conteúdo padrão (usado enquanto o CMS não tiver dados) ───────────────────
-
-const DEFAULT_SERVICES: SiteSettingsServico[] = [
-  {
-    titulo: 'Aposentadorias',
-    descricao:
-      'Análise completa do seu histórico contributivo para identificar a melhor regra — por idade, tempo de contribuição ou transição — antes de qualquer protocolo. O pedido certo, feito na hora certa, evita anos de espera.',
-    itens: [
-      { item: 'Planejamento previdenciário' },
-      { item: 'Contagem e correção do CNIS' },
-      { item: 'Requerimento e acompanhamento no INSS' },
-    ],
-  },
-  {
-    titulo: 'Aposentadoria Especial',
-    descricao:
-      'Reconhecimento do tempo trabalhado em condições insalubres ou perigosas — saúde, indústria, transporte, segurança. A diferença entre a negativa e a concessão costuma estar na qualidade da prova técnica.',
-    itens: [
-      { item: 'Análise de PPP e LTCAT' },
-      { item: 'Conversão de tempo especial em comum' },
-      { item: 'Recurso administrativo e ação judicial' },
-    ],
-  },
-  {
-    titulo: 'Benefícios por Incapacidade',
-    descricao:
-      'Auxílio-doença e aposentadoria por invalidez: preparação para a perícia médica, prorrogação de benefício e contestação de alta indevida — para que a doença não vire também um problema de renda.',
-    itens: [
-      { item: 'Preparação documental para a perícia' },
-      { item: 'Prorrogação e restabelecimento' },
-      { item: 'Contestação de alta indevida' },
-    ],
-  },
-  {
-    titulo: 'BPC / LOAS',
-    descricao:
-      'Benefício assistencial para pessoas com deficiência e idosos a partir de 65 anos em situação de baixa renda. Acompanhamento desde o CadÚnico até a via judicial, quando o INSS nega indevidamente.',
-    itens: [
-      { item: 'Avaliação dos requisitos do benefício' },
-      { item: 'Comprovação de renda e deficiência' },
-      { item: 'Requerimento, recurso e ação judicial' },
-    ],
-  },
-  {
-    titulo: 'Pensão por Morte',
-    descricao:
-      'Orientação completa aos dependentes — cônjuge, filhos, companheiros em união estável — com a sensibilidade que o momento exige e a atenção técnica que os prazos impõem.',
-    itens: [
-      { item: 'Habilitação de dependentes' },
-      { item: 'Comprovação de união estável e dependência' },
-      { item: 'Prazos, retroativos e duração do benefício' },
-    ],
-  },
-  {
-    titulo: 'Revisão de Benefícios',
-    descricao:
-      'Reanálise do cálculo do benefício já concedido: vínculos não computados, salários ignorados e erros de fator. Quando o INSS erra na conta, a diferença é sua por direito.',
-    itens: [
-      { item: 'Conferência integral do cálculo' },
-      { item: 'Inclusão de vínculos e salários ignorados' },
-      { item: 'Revisão administrativa e judicial' },
-    ],
-  },
-]
-
 // ─── Componentes internos ──────────────────────────────────────────────────────
 
 const CheckIcon = () => (
@@ -188,9 +123,7 @@ type Props = {
 }
 
 export function ServicosCards({ cmsServices }: Props) {
-  const source = cmsServices?.length === 6 ? cmsServices : DEFAULT_SERVICES
-
-  const services = source.map((s, i) => ({
+  const services = (cmsServices ?? []).map((s, i) => ({
     id: IDS[i],
     icon: ICONS[i],
     titulo: s.titulo,

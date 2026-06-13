@@ -44,12 +44,9 @@ const timeline = [
   },
 ]
 
-const FALLBACK_FOTO =
-  'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1000&q=80'
-
 export default async function SobrePage() {
   const settings = await getSiteSettings()
-  const fotoUrl = extractMediaUrl(settings.sobreFoto) ?? FALLBACK_FOTO
+  const fotoUrl = extractMediaUrl(settings.sobreFoto)
 
   return (
     <>
@@ -111,15 +108,26 @@ export default async function SobrePage() {
               }}
               aria-hidden="true"
             />
-            <Image
-              src={fotoUrl}
-              alt="Retrato profissional de Vanessa"
-              width={420}
-              height={540}
-              className="relative block w-full rounded-[6px] object-cover object-top"
-              style={{ height: 540 }}
-              priority
-            />
+            {fotoUrl ? (
+              <Image
+                src={fotoUrl}
+                alt="Retrato profissional de Vanessa"
+                width={420}
+                height={540}
+                className="relative block w-full rounded-[6px] object-cover object-top"
+                style={{ height: 540 }}
+                priority
+              />
+            ) : (
+              <div
+                className="relative w-full rounded-[6px] flex items-center justify-center"
+                style={{ height: 540, background: '#BDE4DA' }}
+              >
+                <p className="text-[13px] font-semibold text-[#3D5C5F] tracking-wide uppercase">
+                  Foto não configurada
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -66,25 +66,24 @@ const diferenciais = [
   },
 ]
 
-const FALLBACK_ESCRITORIO =
-  'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80'
-
 export default async function EscritorioPage() {
   const settings = await getSiteSettings()
-  const escritorioUrl = extractMediaUrl(settings.escritorioFoto) ?? FALLBACK_ESCRITORIO
+  const escritorioUrl = extractMediaUrl(settings.escritorioFoto)
 
   return (
     <>
       {/* Hero com foto */}
       <section className="relative overflow-hidden" style={{ height: 520, background: '#2F484B' }}>
-        <Image
-          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=80"
-          alt="Ambiente do escritório"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+        {escritorioUrl && (
+          <Image
+            src={escritorioUrl}
+            alt="Ambiente do escritório"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        )}
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(90deg, rgba(18,32,34,0.78) 0%, rgba(18,32,34,0.45) 55%, rgba(18,32,34,0.25) 100%)' }}
@@ -201,14 +200,25 @@ export default async function EscritorioPage() {
               style={{ top: -22, left: -22, width: 140, height: 140, background: '#BDE4DA', borderRadius: 6 }}
               aria-hidden="true"
             />
-            <Image
-              src={escritorioUrl}
-              alt="Detalhe do escritório"
-              width={480}
-              height={460}
-              className="relative block w-full rounded-[6px] object-cover"
-              style={{ height: 460 }}
-            />
+            {escritorioUrl ? (
+              <Image
+                src={escritorioUrl}
+                alt="Detalhe do escritório"
+                width={480}
+                height={460}
+                className="relative block w-full rounded-[6px] object-cover"
+                style={{ height: 460 }}
+              />
+            ) : (
+              <div
+                className="relative w-full rounded-[6px] flex items-center justify-center"
+                style={{ height: 460, background: '#BDE4DA' }}
+              >
+                <p className="text-[13px] font-semibold text-[#3D5C5F] tracking-wide uppercase">
+                  Foto não configurada
+                </p>
+              </div>
+            )}
           </div>
 
           <div>

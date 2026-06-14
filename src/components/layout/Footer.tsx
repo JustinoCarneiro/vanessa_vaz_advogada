@@ -32,7 +32,7 @@ const socialLinks = [
     ),
   },
   {
-    href: '#',
+    href: 'https://wa.me/436704071939',
     label: 'WhatsApp',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -94,9 +94,9 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:vazvanessamarschallinger@gmail.com"
-                className="text-sm text-white no-underline hover:underline hover:underline-offset-[5px]"
+                className="text-[13.5px] text-white no-underline hover:underline hover:underline-offset-[5px] break-words"
               >
-                vazvanessamarschallinger@gmail.com
+                vazvanessamarschallinger<wbr/>@gmail.com
               </a>
               <span className="text-sm text-white">+43 0670 4071939</span>
               <span className="text-sm text-white">Gunskirchen, Áustria</span>
@@ -119,6 +119,8 @@ export function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="flex items-center justify-center w-[42px] h-[42px] rounded-full transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BDE4DA] focus-visible:outline-offset-3"
                   style={{ border: '1px solid rgba(255,255,255,0.4)' }}

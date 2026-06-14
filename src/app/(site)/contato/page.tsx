@@ -21,7 +21,7 @@ const contactInfo = [
     ),
     label: 'Email',
     content: (
-      <a href="mailto:vazvanessamarschallinger@gmail.com" className="text-[14px] font-semibold underline underline-offset-[4px] break-all" style={{ color: '#3D5C5F' }}>
+      <a href="mailto:vazvanessamarschallinger@gmail.com" className="text-[13px] font-semibold underline underline-offset-[4px] break-words" style={{ color: '#3D5C5F' }}>
         vazvanessamarschallinger@gmail.com
       </a>
     ),
@@ -79,7 +79,7 @@ const socialLinks = [
     ),
   },
   {
-    href: '#',
+    href: 'https://wa.me/436704071939',
     label: 'WhatsApp',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5C5F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -129,7 +129,7 @@ export default function ContatoPage() {
       {/* Formulário + aside */}
       <section className="py-[88px] pb-24" style={{ background: '#FFFFFF' }}>
         <Container>
-          <div className="grid lg:grid-cols-[1fr_340px] gap-[72px] items-start max-w-[1056px] mx-auto">
+          <div className="grid lg:grid-cols-[1fr_360px] gap-[72px] items-start max-w-[1056px] mx-auto">
             {/* Formulário */}
             <div>
               <SectionTitle
@@ -170,6 +170,8 @@ export default function ContatoPage() {
                   <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={label}
                     className="flex items-center justify-center w-[42px] h-[42px] rounded-full transition-colors hover:bg-[#BDE4DA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#3D5C5F] focus-visible:outline-offset-3"
                     style={{ border: '1px solid #89B0AF' }}

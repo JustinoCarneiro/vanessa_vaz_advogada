@@ -21,8 +21,8 @@ const contactInfo = [
     ),
     label: 'Email',
     content: (
-      <a href="mailto:contato@vvmadvocacia.adv.br" className="text-[14px] font-semibold underline underline-offset-[4px]" style={{ color: '#3D5C5F' }}>
-        contato@vvmadvocacia.adv.br
+      <a href="mailto:vazvanessamarschallinger@gmail.com" className="text-[14px] font-semibold underline underline-offset-[4px] break-all" style={{ color: '#3D5C5F' }}>
+        vazvanessamarschallinger@gmail.com
       </a>
     ),
   },
@@ -36,8 +36,8 @@ const contactInfo = [
     label: 'Localização',
     content: (
       <span className="text-[14px] leading-[1.6] text-[#333333]">
-        Florianópolis · SC<br />
-        Atendimento online em todo o Brasil
+        Gunskirchen, Áustria<br />
+        Atendimento internacional
       </span>
     ),
   },

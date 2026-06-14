@@ -38,7 +38,7 @@ export const SiteSettings: GlobalConfig = {
       label: 'Serviços',
       type: 'array',
       minRows: 1,
-      maxRows: 6,
+      maxRows: 7,
       admin: {
         description: 'Edite título, descrição, ícone e itens de cada serviço.',
         initCollapsed: true,

@@ -33,10 +33,11 @@ test.describe('Home', () => {
 
 test.describe('Menu de navegação', () => {
   const rotas = [
-    { label: 'Sobre',      href: '/sobre'      },
-    { label: 'Escritório', href: '/escritorio' },
-    { label: 'Serviços',   href: '/servicos'   },
-    { label: 'Blog',       href: '/blog'       },
+    { label: 'Sobre',                   href: '/sobre'                   },
+    { label: 'Escritório',              href: '/escritorio'              },
+    { label: 'Serviços',                href: '/servicos'                },
+    { label: 'Blog',                    href: '/blog'                    },
+    { label: 'Brasileiros no Exterior', href: '/brasileiros-no-exterior' },
   ]
 
   for (const { label, href } of rotas) {
@@ -46,6 +47,8 @@ test.describe('Menu de navegação', () => {
       // Clica no link do menu desktop (hidden md:flex → visível na viewport padrão 1280px)
       const link = page.locator(`nav a[href="${href}"]`).first()
       await expect(link).toBeVisible()
+      // Aguarda um pouco para garantir que a hidratação do Next.js não intercepte o click
+      await page.waitForTimeout(600)
       await link.click()
 
       await expect(page).toHaveURL(href)

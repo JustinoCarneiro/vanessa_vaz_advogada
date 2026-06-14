@@ -5,6 +5,7 @@ const navLinks = [
   { href: '/sobre', label: 'Sobre' },
   { href: '/escritorio', label: 'Escritório' },
   { href: '/servicos', label: 'Serviços' },
+  { href: '/brasileiros-no-exterior', label: 'Brasileiros no Exterior' },
   { href: '/blog', label: 'Blog' },
   { href: '/contato', label: 'Contato' },
 ]
@@ -83,7 +84,6 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Contato */}
           <div>
             <p
               className="text-[13px] font-semibold tracking-[0.14em] uppercase mb-[18px]"
@@ -93,14 +93,15 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:contato@vvmadvocacia.adv.br"
+                href="mailto:vazvanessamarschallinger@gmail.com"
                 className="text-sm text-white no-underline hover:underline hover:underline-offset-[5px]"
               >
-                contato@vvmadvocacia.adv.br
+                vazvanessamarschallinger@gmail.com
               </a>
-              <span className="text-sm text-white">Florianópolis · SC</span>
+              <span className="text-sm text-white">+43 0670 4071939</span>
+              <span className="text-sm text-white">Gunskirchen, Áustria</span>
               <span className="text-sm" style={{ color: '#BDE4DA' }}>
-                Atendimento online em todo o Brasil
+                Atendimento internacional
               </span>
             </div>
           </div>
@@ -129,16 +130,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div
           className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 py-6"
           style={{ borderTop: '1px solid rgba(255,255,255,0.18)' }}
         >
           <span className="text-[13px]" style={{ color: '#BDE4DA' }}>
-            Vanessa Vaz Marschallinger · OAB/SC 12.345
+            Vanessa Vaz Marschallinger · OAB/RJ 264.772
           </span>
           <span className="text-[13px]" style={{ color: '#BDE4DA' }}>
-            © {new Date().getFullYear()} Todos os direitos reservados
+            © 2026 Vanessa Vaz Marschallinger · Todos os direitos reservados
           </span>
         </div>
       </div>

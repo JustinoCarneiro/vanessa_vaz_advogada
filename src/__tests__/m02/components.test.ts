@@ -83,7 +83,7 @@ describe('M02 — Componentes base', () => {
 
     it('tem placeholder OAB/SC', () => expect(c).toContain('OAB'))
     it("link 'Sobre' presente", () => expect(c).toContain('Sobre'))
-    it('tem email de contato placeholder', () => expect(c).toContain('contato@vvmadvocacia'))
+    it('tem email de contato atualizado', () => expect(c).toContain('vazvanessamarschallinger@gmail.com'))
     it('usa fundo teal-dark (#3D5C5F)', () => expect(c).toContain('#3D5C5F'))
     it('usa next/link', () => expect(c).toContain("from 'next/link'"))
     it('usa Logo component', () => expect(c).toContain('Logo'))

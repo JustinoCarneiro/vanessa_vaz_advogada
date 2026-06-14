@@ -13,7 +13,7 @@ describe('M06 — Formulário de contato + email', () => {
 
     it('arquivo existe', () => expect(fs.existsSync(api('contact/route.ts'))).toBe(true))
     it('exporta POST handler', () => expect(c).toContain('export async function POST'))
-    it('usa Resend para envio de email', () => expect(c).toContain('Resend') || expect(c).toContain('resend'))
+    it('usa Resend para envio de email', () => expect(c.toLowerCase()).toContain('resend'))
     it('usa RESEND_API_KEY do env', () => expect(c).toContain('RESEND_API_KEY'))
     it('usa CONTACT_EMAIL_TO do env', () => expect(c).toContain('CONTACT_EMAIL_TO'))
     it('valida campos obrigatórios (name, email, subject, message)', () => {
@@ -24,9 +24,12 @@ describe('M06 — Formulário de contato + email', () => {
     })
     it('retorna 400 em caso de erro de validação', () => expect(c).toContain('400'))
     it('salva mensagem no Payload (ContactMessages)', () => {
-      expect(c).toContain('contact-messages') || expect(c).toContain('ContactMessages')
+      expect(c.includes('contact-messages') || c.includes('ContactMessages')).toBe(true)
     })
-    it('retorna 200 com ok:true em sucesso', () => expect(c).toContain('ok') && expect(c).toContain('200'))
+    it('retorna 200 com ok:true em sucesso', () => {
+      expect(c).toContain('ok')
+      expect(c).toContain('200')
+    })
   })
 
   describe('ContactForm (componente cliente)', () => {
@@ -36,13 +39,21 @@ describe('M06 — Formulário de contato + email', () => {
     it('arquivo existe', () => expect(fs.existsSync(comp('ContactForm.tsx'))).toBe(true))
     it("é 'use client'", () => expect(c).toContain("'use client'"))
     it('exporta ContactForm como named export', () => expect(c).toContain('export function ContactForm'))
-    it('tem campo nome', () => expect(c).toContain('nome') || expect(c).toContain('name'))
+    it('tem campo nome', () => {
+      expect(c.includes('nome') || c.includes('name')).toBe(true)
+    })
     it('tem campo email', () => expect(c).toContain('email'))
     it('tem campo telefone (opcional)', () => expect(c).toContain('phone'))
-    it('tem select de assunto com opções', () => expect(c).toContain('<select') && expect(c).toContain('Aposentadoria'))
+    it('tem select de assunto com opções', () => {
+      expect(c).toContain('<select')
+      expect(c).toContain('Aposentadoria')
+    })
     it('tem textarea de mensagem', () => expect(c).toContain('<textarea'))
     it('tem validação de erro por campo (cor #B3261E)', () => expect(c).toContain('#B3261E'))
-    it('tem banner de erro geral (role=alert)', () => expect(c).toContain('role') && expect(c).toContain('alert'))
+    it('tem banner de erro geral (role=alert)', () => {
+      expect(c).toContain('role')
+      expect(c).toContain('alert')
+    })
     it('tem estado de sucesso inline (Mensagem enviada)', () => expect(c).toContain('Mensagem enviada'))
     it('tem botão submit "Enviar Mensagem"', () => expect(c).toContain('Enviar Mensagem'))
     it('tem estado de loading (Enviando)', () => expect(c).toContain('Enviando'))
@@ -57,7 +68,7 @@ describe('M06 — Formulário de contato + email', () => {
 
     it('importa ContactForm', () => expect(c).toContain('ContactForm'))
     it('tem header com fundo mint (#BDE4DA)', () => expect(c).toContain('BDE4DA'))
-    it('tem aside com informações de contato', () => expect(c).toContain('contato@vvmadvocacia'))
+    it('tem aside com informações de contato', () => expect(c).toContain('vazvanessamarschallinger@gmail.com'))
     it('tem horário de atendimento', () => expect(c).toContain('9h'))
     it('não tem mais o formulário HTML estático (shell removido)', () => expect(c).not.toContain('TODO'))
   })

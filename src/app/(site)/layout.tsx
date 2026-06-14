@@ -24,7 +24,7 @@ const siteUrl =
 
 const siteName = 'Vanessa Vaz Marschallinger — Advocacia Previdenciária'
 const siteDescription =
-  'Advocacia previdenciária especializada em INSS — aposentadorias, benefícios por incapacidade, pensões e BPC/LOAS. Florianópolis/SC e atendimento online em todo o Brasil.'
+  'Advocacia previdenciária especializada em INSS — aposentadorias, benefícios por incapacidade, pensões e acordos bilaterais. Gunskirchen/Áustria e atendimento internacional.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     'revisão de benefícios',
     'auxílio por incapacidade',
     'previdência social',
-    'Florianópolis',
-    'OAB SC',
+    'Gunskirchen',
+    'OAB RJ',
   ],
   authors: [{ name: 'Vanessa Vaz Marschallinger' }],
   openGraph: {

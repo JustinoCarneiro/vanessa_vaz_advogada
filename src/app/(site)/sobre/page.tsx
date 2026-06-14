@@ -6,8 +6,7 @@ import { getSiteSettings, extractMediaUrl } from '@/lib/api'
 export function generateMetadata(): Metadata {
   return {
     title: 'Sobre Mim — Vanessa Vaz Marschallinger',
-    description:
-      'Conheça Vanessa Vaz Marschallinger, advogada especialista em Direito Previdenciário formada pela UFSC, OAB/SC, com mais de 10 anos de experiência.',
+    description: 'Conheça Vanessa Vaz Marschallinger, advogada especialista em Direito Previdenciário com OAB/RJ 264.772. Atendimento no Brasil e exterior.',
   }
 }
 
@@ -19,7 +18,7 @@ const timeline = [
   },
   {
     year: '2015',
-    title: 'OAB/SC e início da advocacia',
+    title: 'OAB/RJ e início da advocacia',
     text: 'Primeiros anos em escritório de direito social, atendendo segurados do INSS.',
   },
   {
@@ -39,8 +38,8 @@ const timeline = [
   },
   {
     year: '2025',
-    title: 'Atendimento online em todo o Brasil',
-    text: 'Consultas e acompanhamento a distância, com a mesma proximidade do presencial.',
+    title: 'Atendimento internacional',
+    text: 'Consultas e acompanhamento a distância, com a mesma proximidade do presencial, para o Brasil e mais de 20 países.',
   },
 ]
 
@@ -75,7 +74,7 @@ export default async function SobrePage() {
               Vanessa Vaz Marschallinger
             </h1>
             <p className="text-[15px] font-semibold mb-7" style={{ color: '#3D5C5F' }}>
-              Advogada previdenciarista · OAB/SC 12.345
+              Advogada previdenciarista · OAB/RJ 264.772
             </p>
             <p
               className="text-[17px] leading-[1.75] mb-4"
@@ -278,7 +277,7 @@ export default async function SobrePage() {
             className="text-[16.5px] leading-[1.65] mb-9"
             style={{ color: '#2A3F41', textWrap: 'pretty' } as React.CSSProperties}
           >
-            Presencial em Florianópolis ou online, de onde você estiver.
+            Presencial na Áustria ou online, de onde você estiver.
           </p>
           <Link
             href="/contato"

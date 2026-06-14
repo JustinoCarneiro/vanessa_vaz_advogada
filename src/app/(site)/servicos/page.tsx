@@ -14,23 +14,23 @@ export function generateMetadata(): Metadata {
 const diferenciais = [
   {
     num: '01',
-    title: 'Especialização exclusiva',
-    text: 'Só Direito Previdenciário — profundidade em vez de generalidade.',
+    title: 'Vivência internacional',
+    text: 'Conheço a realidade do brasileiro no exterior por dentro — e isso faz diferença na qualidade do atendimento.',
   },
   {
     num: '02',
     title: 'Atendimento direto',
-    text: 'Você fala com a advogada do seu caso, não com um setor de atendimento.',
+    text: 'Você fala com a advogada do seu caso — não com um setor de atendimento.',
   },
   {
     num: '03',
-    title: 'Transparência em cada fase',
-    text: 'Você sabe o que está acontecendo no seu processo — sem juridiquês.',
+    title: 'Onde você estiver',
+    text: 'Online em todo o Brasil e em mais de 20 países, com horário compatível com a Europa.',
   },
   {
     num: '04',
-    title: 'Onde você estiver',
-    text: 'Atendimento presencial em Florianópolis e online em todo o Brasil.',
+    title: 'Especialização exclusiva',
+    text: 'Só Direito Previdenciário — profundidade em vez de generalidade, aqui e no exterior.',
   },
 ]
 

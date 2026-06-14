@@ -205,7 +205,7 @@ export default async function ArtigoPage({ params }: Props) {
             <div>
               <p className="text-[14px] font-semibold text-[#111111] m-0">Vanessa Vaz Marschallinger</p>
               <p className="text-[13px] m-0" style={{ color: '#3D5C5F' }}>
-                Advogada previdenciarista · OAB/SC 12.345
+                Advogada previdenciarista · OAB/RJ 264.772
               </p>
             </div>
           </div>

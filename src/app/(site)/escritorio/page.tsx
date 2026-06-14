@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Sobre o Escritório — Vanessa Vaz Marschallinger',
     description:
-      'Escritório especializado em Direito Previdenciário em Florianópolis/SC com atendimento online. Conheça nossa missão, valores e diferenciais.',
+      'Escritório especializado em Direito Previdenciário na Áustria com atendimento internacional. Conheça nossa missão, valores e diferenciais.',
   }
 }
 
@@ -57,8 +57,8 @@ const diferenciais = [
     text: 'Você conversa com quem cuida do seu processo, não com intermediários.',
   },
   {
-    title: 'Presencial e online',
-    text: 'Em Florianópolis ou de onde você estiver, com o mesmo cuidado.',
+    title: 'Atendimento internacional',
+    text: 'Na Áustria, no Brasil ou de onde você estiver, com o mesmo cuidado.',
   },
   {
     title: 'Acompanhamento transparente',
@@ -290,7 +290,7 @@ export default async function EscritorioPage() {
             className="text-[16.5px] leading-[1.65] mb-9"
             style={{ color: '#BDE4DA', textWrap: 'pretty' } as React.CSSProperties}
           >
-            Agende uma conversa presencial em Florianópolis ou um atendimento online.
+            Agende uma conversa presencial na Áustria ou um atendimento online.
           </p>
           <Link
             href="/contato"

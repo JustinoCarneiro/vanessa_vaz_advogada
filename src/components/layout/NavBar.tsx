@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/sobre', label: 'Sobre' },
   { href: '/escritorio', label: 'Escritório' },
   { href: '/servicos', label: 'Serviços' },
+  { href: '/brasileiros-no-exterior', label: 'Brasileiros no Exterior' },
   { href: '/blog', label: 'Blog' },
 ]
 

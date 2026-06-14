@@ -145,7 +145,8 @@ test.describe('Admin — login e CRUD de posts', () => {
     await page.locator('button[type="submit"], button:has-text("Salvar"), button:has-text("Save")').first().click()
     await expect(page).toHaveURL(/\/admin\/collections\/posts\/\d+/, { timeout: 15_000 })
 
-    await page.goto('/blog')
+    // Busca pelo título para ignorar o cache de página estática do Next.js
+    await page.goto(`/blog?q=${encodeURIComponent(title)}`)
     await expect(page.getByText(title)).toBeVisible({ timeout: 10_000 })
   })
 })

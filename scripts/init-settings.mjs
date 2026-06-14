@@ -103,6 +103,17 @@ const SERVICOS = [
       { item: 'Revisão administrativa e judicial' },
     ],
   },
+  {
+    icone: 'globo',
+    titulo: 'Acordos Internacionais / Bilaterais',
+    descricao:
+      'Atendimento especializado para brasileiros no exterior, visando a contagem de tempo de contribuição em países com acordo previdenciário com o Brasil, garantindo o melhor cenário de aposentadoria internacional.',
+    itens: [
+      { item: 'Análise de acordos previdenciários' },
+      { item: 'Soma de tempo de contribuição Brasil/Exterior' },
+      { item: 'Aposentadoria em múltiplos países' },
+    ],
+  },
 ]
 
 async function run() {

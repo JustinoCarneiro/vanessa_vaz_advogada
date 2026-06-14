@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const to = process.env.CONTACT_EMAIL_TO ?? 'contato@vvmadvocacia.adv.br'
+    const to = process.env.CONTACT_EMAIL_TO ?? 'vazvanessamarschallinger@gmail.com'
     await resend.emails.send({
       from: 'Site VVM Advocacia <no-reply@vvmadvocacia.adv.br>',
       to,
@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
             <p style="margin: 0 0 8px; font-weight: 600; color: #555555;">Mensagem:</p>
             <p style="margin: 0; line-height: 1.7; white-space: pre-wrap;">${message}</p>
           </div>
-          <p style="font-size: 12px; color: #999999; margin-top: 20px; text-align: center;">VVM Advocacia Previdenciária · Florianópolis / SC</p>
+          <p style="font-size: 12px; color: #999999; margin-top: 20px; text-align: center;">Vanessa Vaz Marschallinger · Gunskirchen, Áustria</p>
         </div>
       `,
     })

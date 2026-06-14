@@ -92,28 +92,35 @@ export function HeroCarousel() {
             lineHeight: 1.15,
           }}
         >
-          Segurança para conquistar o benefício que é seu por direito.
+          Seu benefício do INSS — onde quer que você esteja.
         </h1>
         <p
           className="text-white/90 max-w-[520px] mb-9"
           style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: 1.6 }}
         >
-          Advocacia previdenciária especializada em INSS — aposentadorias, benefícios por
-          incapacidade, pensões e BPC/LOAS.
+          Aposentadorias, benefícios por incapacidade, pensões e acordos bilaterais. Atendimento próximo, estratégia clara, do primeiro requerimento à decisão final.
         </p>
-        <Link
-          href="/contato"
-          className="inline-block self-start text-[15px] font-semibold tracking-[0.04em] transition-colors hover:bg-[#2F484B] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#BDE4DA] focus-visible:outline-offset-[3px]"
-          style={{
-            background: '#3D5C5F',
-            color: '#FFFFFF',
-            border: '1px solid rgba(255,255,255,0.45)',
-            padding: '17px 40px',
-            borderRadius: 4,
-          }}
-        >
-          Fale Comigo
-        </Link>
+        <div className="flex flex-wrap items-center gap-6">
+          <Link
+            href="/contato"
+            className="inline-block text-[15px] font-semibold tracking-[0.04em] transition-colors hover:bg-[#2F484B] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#BDE4DA] focus-visible:outline-offset-[3px]"
+            style={{
+              background: '#3D5C5F',
+              color: '#FFFFFF',
+              border: '1px solid rgba(255,255,255,0.45)',
+              padding: '17px 40px',
+              borderRadius: 4,
+            }}
+          >
+            Agendar Consulta
+          </Link>
+          <Link
+            href="/brasileiros-no-exterior"
+            className="text-[15px] font-semibold text-white no-underline hover:underline hover:underline-offset-4"
+          >
+            Brasileiros no Exterior →
+          </Link>
+        </div>
       </div>
 
       {/* Dot navigation */}

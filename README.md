@@ -11,7 +11,8 @@ Site profissional com blog integrado para **Vanessa Vaz Marschallinger**, advoga
 | Banco de dados | PostgreSQL via Neon |
 | Estilização | Tailwind CSS 3.x |
 | Email | Resend |
-| Testes | Jest + ts-jest |
+| Testes Unitários | Jest + ts-jest |
+| Testes E2E | Playwright |
 | Deploy | Vercel |
 
 ## Pré-requisitos
@@ -57,11 +58,13 @@ Na primeira execução, o Payload cria as tabelas e solicita a criação do prim
 ## Testes
 
 ```bash
-npm test              # executa todos os testes
+npm test              # executa testes unitários (Jest)
 npm run test:watch    # modo watch
+npx playwright test   # executa testes end-to-end (Playwright)
+npx playwright test --ui  # abre interface visual dos testes E2E
 ```
 
-O projeto usa TDD com verificações de sistema de arquivos (sem renderização DOM). São 300 testes distribuídos em 7 módulos:
+O projeto usa TDD com verificações de sistema de arquivos e testes automatizados no navegador. São 305 testes unitários (Jest) e suítes completas de navegação (Playwright) distribuídos em módulos:
 
 | Módulo | Cobertura |
 |---|---|
@@ -92,6 +95,7 @@ src/
 │   │   ├── sobre/
 │   │   ├── escritorio/
 │   │   ├── servicos/
+│   │   ├── brasileiros-no-exterior/
 │   │   ├── contato/
 │   │   └── blog/
 │   ├── (payload)/       # Painel admin do Payload CMS

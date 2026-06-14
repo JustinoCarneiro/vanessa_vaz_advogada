@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { HeroCarousel } from '@/components/home/HeroCarousel'
 import { ServiceCard } from '@/components/home/ServiceCard'
 import { CtaSection } from '@/components/home/CtaSection'
+import { ExteriorSection } from '@/components/home/ExteriorSection'
 import { PostCard } from '@/components/blog/PostCard'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Container } from '@/components/ui/Container'
@@ -22,12 +23,12 @@ const legalServiceSchema = {
     'Escritório especializado em Direito Previdenciário: aposentadorias, BPC/LOAS, pensão por morte, revisão de benefícios.',
   url: siteUrl,
   telephone: '',
-  email: 'contato@vvmadvocacia.adv.br',
+  email: 'vazvanessamarschallinger@gmail.com',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Florianópolis',
-    addressRegion: 'SC',
-    addressCountry: 'BR',
+    addressLocality: 'Gunskirchen',
+    addressRegion: 'Áustria',
+    addressCountry: 'AT',
   },
   areaServed: 'Brasil',
   founder: {
@@ -47,7 +48,7 @@ const legalServiceSchema = {
 export const metadata: Metadata = {
   title: 'Vanessa Vaz Marschallinger — Advocacia Previdenciária',
   description:
-    'Especialista em Direito Previdenciário em Florianópolis/SC. Aposentadorias, BPC/LOAS, pensão por morte, revisão de benefícios e mais.',
+    'Especialista em Direito Previdenciário na Áustria com atendimento internacional. Aposentadorias, BPC/LOAS, pensão por morte, acordos bilaterais e mais.',
 }
 
 
@@ -97,7 +98,7 @@ export default async function HomePage() {
                 Ao seu lado em cada etapa, da análise do caso à decisão final.
               </h2>
               <p className="leading-relaxed mb-4" style={{ fontSize: 17, color: '#333333', lineHeight: 1.7 }}>
-                Sou Vanessa Vaz Marschallinger, advogada especializada em Direito Previdenciário. Atuo ao lado de quem teve o benefício negado, cortado ou reduzido pelo INSS — com escuta atenta, estratégia clara e acompanhamento próximo do início ao fim do processo.
+                Sou Vanessa Vaz Marschallinger, advogada especializada em Direito Previdenciário. Baseada na Áustria, atendo brasileiros no Brasil e em mais de 20 países — com escuta atenta, estratégia clara e acompanhamento próximo.
               </p>
               <p className="leading-relaxed mb-9" style={{ fontSize: 17, color: '#333333', lineHeight: 1.7 }}>
                 Cada caso recebe análise individual: aqui você não é um número de protocolo.
@@ -173,6 +174,8 @@ export default async function HomePage() {
           </div>
         </Container>
       </section>
+
+      <ExteriorSection />
 
       <CtaSection />
 

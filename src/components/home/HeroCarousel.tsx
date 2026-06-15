@@ -61,7 +61,7 @@ export function HeroCarousel() {
               fill
               priority={i === 0}
               className="object-cover"
-              style={{ objectPosition: 'center 22%' }}
+              style={{ objectPosition: 'center 38%' }}
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1800px"
             />
           </div>

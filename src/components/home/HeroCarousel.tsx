@@ -5,16 +5,8 @@ import Link from 'next/link'
 
 const slides = [
   {
-    src: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80',
-    alt: 'Livros jurídicos — direito previdenciário',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80',
+    src: 'https://z9wigac9n5ehnmxx.public.blob.vercel-storage.com/reform-previdencia-2.jpg',
     alt: 'Balança da justiça — advocacia previdenciária',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80',
-    alt: 'Biblioteca jurídica — Vanessa Vaz Marschallinger',
   },
 ]
 
@@ -121,9 +113,9 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      {/* Dot navigation */}
+      {/* Dot navigation — oculto quando há apenas 1 slide */}
       <div
-        className="dot-nav absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-3"
+        className={`dot-nav absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-3${slides.length <= 1 ? ' hidden' : ''}`}
         style={{ zIndex: 4 }}
         role="tablist"
         aria-label="Slides"

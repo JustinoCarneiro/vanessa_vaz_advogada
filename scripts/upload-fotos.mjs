@@ -1,5 +1,5 @@
 /**
- * Faz upload das fotos placeholder para o Payload CMS em produção.
+ * Faz upload das fotos da Vanessa para o Payload CMS e vincula ao SiteSettings.
  * Vanessa pode substituir a qualquer momento pelo painel /admin.
  *
  * Uso:
@@ -25,17 +25,16 @@ const BASE     = process.env.SEED_BASE_URL || 'http://localhost:3000'
 const EMAIL    = process.env.PLAYWRIGHT_ADMIN_EMAIL
 const PASSWORD = process.env.PLAYWRIGHT_ADMIN_PASSWORD
 
-// Fotos de stock (Unsplash — licença livre para uso comercial)
 const FOTOS = {
   sobre: {
-    url: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=900&q=85',
-    filename: 'foto-vanessa-placeholder.jpg',
-    alt: 'Advogada Vanessa Vaz Marschallinger — foto de perfil',
+    path: resolve(__dirname, '..', 'public', 'fotos', 'IMG_0959.png'),
+    filename: 'vanessa-vaz-marschallinger-perfil.png',
+    alt: 'Vanessa Vaz Marschallinger — advogada previdenciária',
   },
   escritorio: {
-    url: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=85',
-    filename: 'foto-escritorio-placeholder.jpg',
-    alt: 'Ambiente do escritório de advocacia — Vanessa Vaz Marschallinger',
+    path: resolve(__dirname, '..', 'public', 'fotos', 'IMG_0960.png'),
+    filename: 'vanessa-vaz-marschallinger-escritorio.png',
+    alt: 'Vanessa Vaz Marschallinger — escritório de advocacia',
   },
 }
 
@@ -50,17 +49,11 @@ async function login() {
   return data.token
 }
 
-async function downloadImage(url) {
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`Falha ao baixar imagem: ${url} — ${res.status}`)
-  return Buffer.from(await res.arrayBuffer())
-}
-
-async function uploadMedia(token, buffer, filename, alt) {
+async function uploadMedia(token, filePath, filename, alt) {
+  const buffer = readFileSync(filePath)
   const formData = new FormData()
-  const blob = new Blob([buffer], { type: 'image/jpeg' })
+  const blob = new Blob([buffer], { type: 'image/png' })
   formData.append('file', blob, filename)
-  // Payload exige campos extras como JSON em _payload
   formData.append('_payload', JSON.stringify({ alt }))
 
   const res = await fetch(`${BASE}/api/media`, {
@@ -75,7 +68,15 @@ async function uploadMedia(token, buffer, filename, alt) {
   return data.doc.id
 }
 
+async function getSiteSettings(token) {
+  const res = await fetch(`${BASE}/api/globals/site-settings`, {
+    headers: { Authorization: `JWT ${token}` },
+  })
+  return res.json().catch(() => ({}))
+}
+
 async function updateSiteSettings(token, sobreFotoId, escritorioFotoId) {
+  const current = await getSiteSettings(token)
   const res = await fetch(`${BASE}/api/globals/site-settings`, {
     method: 'POST',
     headers: {
@@ -83,6 +84,7 @@ async function updateSiteSettings(token, sobreFotoId, escritorioFotoId) {
       Authorization: `JWT ${token}`,
     },
     body: JSON.stringify({
+      ...current,
       sobreFoto: sobreFotoId,
       escritorioFoto: escritorioFotoId,
     }),
@@ -98,17 +100,13 @@ async function run() {
   const token = await login()
   console.log('✅  Login OK')
 
-  console.log('⬇️   Baixando foto — Sobre Mim...')
-  const bufferSobre = await downloadImage(FOTOS.sobre.url)
-  console.log('⬆️   Enviando para o Payload...')
-  const sobreId = await uploadMedia(token, bufferSobre, FOTOS.sobre.filename, FOTOS.sobre.alt)
-  console.log(`✅  Foto Sobre Mim salva — ID: ${sobreId}`)
+  console.log('⬆️   Enviando foto de perfil (IMG_0959)...')
+  const sobreId = await uploadMedia(token, FOTOS.sobre.path, FOTOS.sobre.filename, FOTOS.sobre.alt)
+  console.log(`✅  Foto de perfil salva — ID: ${sobreId}`)
 
-  console.log('⬇️   Baixando foto — Escritório...')
-  const bufferEscritorio = await downloadImage(FOTOS.escritorio.url)
-  console.log('⬆️   Enviando para o Payload...')
-  const escritorioId = await uploadMedia(token, bufferEscritorio, FOTOS.escritorio.filename, FOTOS.escritorio.alt)
-  console.log(`✅  Foto Escritório salva — ID: ${escritorioId}`)
+  console.log('⬆️   Enviando foto do escritório (IMG_0960)...')
+  const escritorioId = await uploadMedia(token, FOTOS.escritorio.path, FOTOS.escritorio.filename, FOTOS.escritorio.alt)
+  console.log(`✅  Foto do escritório salva — ID: ${escritorioId}`)
 
   console.log('\n🔗  Vinculando fotos ao SiteSettings...')
   await updateSiteSettings(token, sobreId, escritorioId)
@@ -116,7 +114,7 @@ async function run() {
 
   console.log('🎉  Feito! As fotos já aparecem no site.')
   console.log('    Vanessa pode substituí-las quando quiser em:')
-  console.log(`    ${BASE.replace('https://projeto-vanessa-two.vercel.app', 'https://projeto-vanessa-two.vercel.app')}/admin → Configurações → Fotos e Serviços\n`)
+  console.log(`    ${BASE}/admin → Configurações → Fotos e Serviços\n`)
 }
 
 run().catch((e) => { console.error(e); process.exit(1) })

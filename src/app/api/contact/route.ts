@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
@@ -53,16 +53,23 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    // Envia email via Resend — falha silenciosamente se a chave não estiver configurada
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.startsWith('re_xxx')) {
-      console.warn('[api/contact] RESEND_API_KEY não configurada — email não enviado (mensagem salva no painel).')
+    // Envia email via Gmail SMTP — falha silenciosamente se as variáveis não estiverem configuradas
+    const gmailUser = process.env.GMAIL_USER
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD
+
+    if (!gmailUser || !gmailAppPassword) {
+      console.warn('[api/contact] GMAIL_USER / GMAIL_APP_PASSWORD não configurados — email não enviado (mensagem salva no painel).')
       return NextResponse.json({ ok: true }, { status: 200 })
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    const to = process.env.CONTACT_EMAIL_TO ?? 'vazvanessamarschallinger@gmail.com'
-    await resend.emails.send({
-      from: 'Site VVM Advocacia <no-reply@vvmadvocacia.adv.br>',
+    const to = process.env.CONTACT_EMAIL_TO ?? gmailUser
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: { user: gmailUser, pass: gmailAppPassword },
+    })
+
+    await transporter.sendMail({
+      from: `"Site VVM Advocacia" <${gmailUser}>`,
       to,
       replyTo: email!.trim(),
       subject: `[Site] ${subject} — ${name}`,

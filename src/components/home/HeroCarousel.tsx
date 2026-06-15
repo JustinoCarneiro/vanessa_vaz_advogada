@@ -3,20 +3,18 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-// URLs sem ?w= — next/image gera srcset responsivo automaticamente.
-// Parâmetros mínimos do Unsplash para qualidade e formato.
 const slides = [
   {
-    src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
-    alt: 'Advogada previdenciária — slide 1',
+    src: '/fotos/IMG_0959.png',
+    alt: 'Vanessa Vaz Marschallinger — advogada previdenciária',
   },
   {
-    src: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80',
-    alt: 'Atendimento jurídico especializado — slide 2',
+    src: '/fotos/IMG_0960.png',
+    alt: 'Vanessa Vaz Marschallinger — atendimento jurídico especializado',
   },
   {
-    src: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80',
-    alt: 'Consultoria previdenciária — slide 3',
+    src: '/fotos/IMG_0961.png',
+    alt: 'Vanessa Vaz Marschallinger — consultoria previdenciária',
   },
 ]
 

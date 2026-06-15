@@ -115,7 +115,7 @@ export default async function SobrePage() {
                 width={420}
                 height={540}
                 className="relative block w-full rounded-[6px] object-cover"
-                style={{ height: 540, objectPosition: 'center 30%' }}
+                style={{ height: 540, objectPosition: 'center 55%' }}
                 priority
               />
             ) : (

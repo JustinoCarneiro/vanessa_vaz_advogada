@@ -117,28 +117,6 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      {/* Dot navigation — oculto quando há apenas 1 slide */}
-      <div
-        className={`dot-nav absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-3${slides.length <= 1 ? ' hidden' : ''}`}
-        style={{ zIndex: 4 }}
-        role="tablist"
-        aria-label="Slides"
-      >
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            role="tab"
-            aria-selected={i === active}
-            aria-label={`Slide ${i + 1}`}
-            onClick={() => setActive(i)}
-            className="w-[11px] h-[11px] rounded-full transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BDE4DA] focus-visible:outline-offset-2"
-            style={{
-              border: '1.5px solid #FFFFFF',
-              background: i === active ? '#FFFFFF' : 'rgba(255,255,255,0.18)',
-            }}
-          />
-        ))}
-      </div>
     </section>
   )
 }

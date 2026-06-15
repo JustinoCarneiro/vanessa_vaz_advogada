@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Contato — Vanessa Vaz Marschallinger',
     description:
-      'Entre em contato com a advogada previdenciária Vanessa Vaz Marschallinger. Florianópolis/SC e atendimento online em todo o Brasil. Retorno em até 1 dia útil.',
+      'Entre em contato com a advogada previdenciária Vanessa Vaz Marschallinger. Atendimento online para o Brasil e todo o mundo. Retorno em até 1 dia útil.',
   }
 }
 

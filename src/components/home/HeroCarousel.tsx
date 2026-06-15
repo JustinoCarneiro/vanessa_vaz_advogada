@@ -5,16 +5,16 @@ import Link from 'next/link'
 
 const slides = [
   {
-    src: '/fotos/IMG_0959.png',
-    alt: 'Vanessa Vaz Marschallinger — advogada previdenciária',
+    src: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80',
+    alt: 'Livros jurídicos — direito previdenciário',
   },
   {
-    src: '/fotos/IMG_0960.png',
-    alt: 'Vanessa Vaz Marschallinger — atendimento jurídico especializado',
+    src: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80',
+    alt: 'Balança da justiça — advocacia previdenciária',
   },
   {
-    src: '/fotos/IMG_0961.png',
-    alt: 'Vanessa Vaz Marschallinger — consultoria previdenciária',
+    src: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80',
+    alt: 'Biblioteca jurídica — Vanessa Vaz Marschallinger',
   },
 ]
 
@@ -61,7 +61,7 @@ export function HeroCarousel() {
               fill
               priority={i === 0}
               className="object-cover"
-              style={{ objectPosition: 'center 38%' }}
+              style={{ objectPosition: 'center 22%' }}
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1800px"
             />
           </div>

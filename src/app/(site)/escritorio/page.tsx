@@ -8,6 +8,7 @@ export function generateMetadata(): Metadata {
     title: 'Sobre o Escritório — Vanessa Vaz Marschallinger',
     description:
       'Escritório especializado em Direito Previdenciário na Áustria com atendimento internacional. Conheça nossa missão, valores e diferenciais.',
+    alternates: { canonical: '/escritorio' },
   }
 }
 

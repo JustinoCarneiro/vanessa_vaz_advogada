@@ -7,6 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Sobre Mim — Vanessa Vaz Marschallinger',
     description: 'Conheça Vanessa Vaz Marschallinger, advogada especialista em Direito Previdenciário com OAB/RJ 264.772. Atendimento no Brasil e exterior.',
+    alternates: { canonical: '/sobre' },
   }
 }
 

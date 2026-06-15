@@ -8,6 +8,7 @@ export function generateMetadata(): Metadata {
     title: 'Serviços — Vanessa Vaz Marschallinger',
     description:
       'Aposentadorias, aposentadoria especial, benefícios por incapacidade, BPC/LOAS, pensão por morte e revisão. Conheça todos os serviços de advocacia previdenciária.',
+    alternates: { canonical: '/servicos' },
   }
 }
 

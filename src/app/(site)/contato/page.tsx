@@ -8,6 +8,7 @@ export function generateMetadata(): Metadata {
     title: 'Contato — Vanessa Vaz Marschallinger',
     description:
       'Entre em contato com a advogada previdenciária Vanessa Vaz Marschallinger. Atendimento online para o Brasil e todo o mundo. Retorno em até 1 dia útil.',
+    alternates: { canonical: '/contato' },
   }
 }
 

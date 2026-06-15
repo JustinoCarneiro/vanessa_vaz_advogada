@@ -20,14 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(slug)
   if (!post) return { title: 'Artigo não encontrado' }
 
+  const coverUrl =
+    post.coverImage && typeof post.coverImage !== 'string'
+      ? (post.coverImage as { url?: string }).url
+      : null
+
   return {
     title: `${post.meta?.title ?? post.title} — Blog Vanessa Vaz`,
     description: post.meta?.description ?? post.excerpt ?? undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.meta?.title ?? post.title,
       description: post.meta?.description ?? post.excerpt ?? undefined,
       type: 'article',
       publishedTime: post.publishedAt ?? undefined,
+      ...(coverUrl ? { images: [{ url: coverUrl, width: 1200, height: 630 }] } : {}),
     },
   }
 }

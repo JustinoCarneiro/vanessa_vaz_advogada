@@ -10,6 +10,7 @@ export function generateMetadata(): Metadata {
     title: 'Advocacia Previdenciária para Brasileiros no Exterior | INSS',
     description:
       'Atendimento especializado em aposentadorias, acordos internacionais e manutenção de INSS para brasileiros residentes na Europa, Américas e todo o mundo.',
+    alternates: { canonical: '/brasileiros-no-exterior' },
   }
 }
 

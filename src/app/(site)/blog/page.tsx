@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Blog — Vanessa Vaz Marschallinger',
   description:
     'Informação clara sobre INSS, aposentadorias e benefícios para você entender seus direitos antes de qualquer decisão.',
+  alternates: { canonical: '/blog' },
 }
 
 interface BlogPageProps {

@@ -22,7 +22,6 @@ const legalServiceSchema = {
   description:
     'Escritório especializado em Direito Previdenciário: aposentadorias, BPC/LOAS, pensão por morte, revisão de benefícios.',
   url: siteUrl,
-  telephone: '',
   email: 'vazvanessamarschallinger@gmail.com',
   address: {
     '@type': 'PostalAddress',
@@ -49,6 +48,7 @@ export const metadata: Metadata = {
   title: 'Vanessa Vaz Marschallinger — Advocacia Previdenciária',
   description:
     'Especialista em Direito Previdenciário na Áustria com atendimento internacional. Aposentadorias, BPC/LOAS, pensão por morte, acordos bilaterais e mais.',
+  alternates: { canonical: '/' },
 }
 
 

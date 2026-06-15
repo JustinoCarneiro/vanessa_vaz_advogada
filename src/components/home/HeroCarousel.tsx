@@ -6,7 +6,11 @@ import Link from 'next/link'
 const slides = [
   {
     src: 'https://z9wigac9n5ehnmxx.public.blob.vercel-storage.com/reform-previdencia-2.jpg',
-    alt: 'Balança da justiça — advocacia previdenciária',
+    alt: 'Estátua da justiça — advocacia previdenciária',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80',
+    alt: 'Biblioteca jurídica — Vanessa Vaz Marschallinger',
   },
 ]
 

@@ -114,8 +114,8 @@ export default async function SobrePage() {
                 alt="Retrato profissional de Vanessa"
                 width={420}
                 height={540}
-                className="relative block w-full rounded-[6px] object-cover object-top"
-                style={{ height: 540 }}
+                className="relative block w-full rounded-[6px] object-cover"
+                style={{ height: 540, objectPosition: 'center 30%' }}
                 priority
               />
             ) : (

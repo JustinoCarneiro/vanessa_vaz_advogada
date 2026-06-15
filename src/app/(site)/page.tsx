@@ -131,7 +131,7 @@ export default async function HomePage() {
                     alt="Vanessa Vaz Marschallinger, advogada previdenciária"
                     fill
                     className="object-cover"
-                    style={{ objectPosition: 'center 15%' }}
+                    style={{ objectPosition: 'center 30%' }}
                     sizes="(max-width: 768px) 100vw, 420px"
                   />
                 ) : (

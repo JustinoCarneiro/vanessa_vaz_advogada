@@ -122,7 +122,7 @@ export default async function HomePage() {
               />
               {/* Photo */}
               <div
-                className="relative overflow-hidden h-[320px] md:h-[520px]"
+                className="relative overflow-hidden h-[420px] md:h-[560px]"
                 style={{ borderRadius: 6, zIndex: 1 }}
               >
                 {fotoUrl ? (
@@ -130,7 +130,8 @@ export default async function HomePage() {
                     src={fotoUrl}
                     alt="Vanessa Vaz Marschallinger, advogada previdenciária"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
+                    style={{ objectPosition: 'center 15%' }}
                     sizes="(max-width: 768px) 100vw, 420px"
                   />
                 ) : (

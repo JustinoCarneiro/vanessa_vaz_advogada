@@ -12,7 +12,7 @@ const navLinks = [
 
 const socialLinks = [
   {
-    href: '#',
+    href: 'https://www.instagram.com/vanessavaz_adv/',
     label: 'Instagram',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">

@@ -92,7 +92,7 @@ export function HeroCarousel() {
           className="text-white/90 max-w-[520px] mb-9"
           style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: 1.6 }}
         >
-          Aposentadorias, benefícios por incapacidade, pensões e acordos bilaterais. Atendimento próximo, estratégia clara, do primeiro requerimento à decisão final.
+          Aposentadorias, benefícios por incapacidade, pensões e acordos bilaterais e multilaterais. Atendimento próximo, estratégia clara, do primeiro requerimento à decisão final.
         </p>
         <div className="flex flex-wrap items-center gap-6">
           <Link

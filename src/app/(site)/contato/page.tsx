@@ -71,7 +71,7 @@ const socialLinks = [
     ),
   },
   {
-    href: '#',
+    href: 'https://www.linkedin.com/in/vanessa-vaz-marschallinger-403482247/',
     label: 'LinkedIn',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="#3D5C5F" aria-hidden="true">

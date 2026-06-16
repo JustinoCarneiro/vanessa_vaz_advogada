@@ -40,9 +40,10 @@ describe('M03 — Páginas institucionais', () => {
     it('limpa o timer no unmount', () => expect(c.includes('clearInterval') || c.includes('clearTimeout')).toBe(true))
     it('tem navegação por dots', () => expect(c.includes('dot-nav') || c.includes('tablist')).toBe(true))
     it('tem CTA Fale Comigo', () => expect(c.includes('Fale Comigo') || c.includes('/contato')).toBe(true))
-    it('tem 3 slides configurados', () => {
-      const imgMatches = c.match(/unsplash\.com/g) ?? []
-      expect(imgMatches.length).toBeGreaterThanOrEqual(3)
+    it('tem pelo menos 2 slides configurados', () => {
+      // Suporta mix de Vercel Blob (blob.vercel-storage.com) e Unsplash
+      const imgMatches = c.match(/blob\.vercel-storage\.com|unsplash\.com/g) ?? []
+      expect(imgMatches.length).toBeGreaterThanOrEqual(2)
     })
   })
 

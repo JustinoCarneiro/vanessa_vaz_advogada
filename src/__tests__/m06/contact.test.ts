@@ -13,8 +13,11 @@ describe('M06 — Formulário de contato + email', () => {
 
     it('arquivo existe', () => expect(fs.existsSync(api('contact/route.ts'))).toBe(true))
     it('exporta POST handler', () => expect(c).toContain('export async function POST'))
-    it('usa Resend para envio de email', () => expect(c.toLowerCase()).toContain('resend'))
-    it('usa RESEND_API_KEY do env', () => expect(c).toContain('RESEND_API_KEY'))
+    it('usa Nodemailer + Gmail SMTP para envio de email', () => expect(c).toContain('nodemailer'))
+    it('usa GMAIL_USER e GMAIL_APP_PASSWORD do env', () => {
+      expect(c).toContain('GMAIL_USER')
+      expect(c).toContain('GMAIL_APP_PASSWORD')
+    })
     it('usa CONTACT_EMAIL_TO do env', () => expect(c).toContain('CONTACT_EMAIL_TO'))
     it('valida campos obrigatórios (name, email, subject, message)', () => {
       expect(c).toContain('name')

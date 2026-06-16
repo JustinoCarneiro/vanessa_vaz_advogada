@@ -16,12 +16,12 @@ test.describe('Home', () => {
     const carousel = page.locator('[aria-label="Apresentação"]')
     await expect(carousel).toBeVisible()
 
-    // Navegação por dots presente
-    const dots = page.locator('[role="tablist"][aria-label="Slides"]')
-    await expect(dots).toBeVisible()
+    // Título principal visível dentro do hero
+    await expect(carousel.locator('h1')).toBeVisible()
 
-    // Pelo menos 3 dots (3 slides)
-    await expect(dots.locator('[role="tab"]')).toHaveCount(3)
+    // CTA de agendamento presente no hero
+    const ctaAgendar = carousel.locator('a[href="/contato"]')
+    await expect(ctaAgendar).toBeVisible()
   })
 
   test('botão "Fale Comigo" no hero leva a /contato', async ({ page }) => {

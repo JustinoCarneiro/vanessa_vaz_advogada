@@ -24,6 +24,23 @@ const extraOrigins = serverURL.includes('://www.')
   ? [serverURL.replace('://www.', '://')]
   : [serverURL.replace('://', '://www.')]
 
+const blobToken = process.env.BLOB_READ_WRITE_TOKEN
+
+// Em qualquer deploy na Vercel o filesystem é somente-leitura (exceto /tmp), então
+// o Vercel Blob é OBRIGATÓRIO para uploads. Sem o token, o plugin abaixo fica
+// ausente, `disableLocalStorage` continua `false` e o Payload tenta gravar o
+// arquivo em disco — o que falha com EROFS e devolve um 500 genérico
+// ("Something went wrong.") ao salvar imagens no painel. Falhamos cedo e com
+// mensagem clara, em vez de degradar silenciosamente para o disco.
+if (process.env.VERCEL && !blobToken) {
+  throw new Error(
+    'BLOB_READ_WRITE_TOKEN ausente neste deploy da Vercel. Conecte um Blob Store ' +
+      'PUBLIC ao projeto e defina a variável no ambiente de Production; depois ' +
+      'refaça o deploy. Sem ela, os uploads de mídia falham porque o filesystem ' +
+      'serverless é somente-leitura.',
+  )
+}
+
 export default buildConfig({
   serverURL,
   cors: [serverURL, ...extraOrigins],
@@ -54,7 +71,7 @@ export default buildConfig({
     // Passar `enabled: false` não basta: o plugin ainda injeta o componente
     // VercelBlobClientUploadHandler no admin, que precisa estar no importMap.
     // Mantê-lo totalmente ausente sem token evita esse acoplamento.
-    ...(process.env.BLOB_READ_WRITE_TOKEN
+    ...(blobToken
       ? [
           vercelBlobStorage({
             enabled: true,
@@ -66,7 +83,7 @@ export default buildConfig({
                 disablePayloadAccessControl: true,
               },
             },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
+            token: blobToken,
           }),
         ]
       : []),

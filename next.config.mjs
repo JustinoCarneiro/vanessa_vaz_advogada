@@ -6,6 +6,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Sharp usa binários nativos — não pode ser bundlado pelo Webpack no Vercel.
+  serverExternalPackages: ['sharp'],
   // O handler de upload do plugin Vercel Blob é sempre registrado no importMap
   // do admin. No bundle do browser ele arrastaria `payload/internal` (via
   // resolveSignedURLKey) → pino → node:assert/worker_threads, quebrando o build.

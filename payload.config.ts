@@ -16,8 +16,18 @@ import { SiteSettings } from './src/globals/SiteSettings'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+
+// Aceita www e não-www como origens válidas para CSRF (evita 403 ao fazer upload
+// quando o usuário acessa pelo domínio alternativo ao definido em NEXT_PUBLIC_SERVER_URL).
+const extraOrigins = serverURL.includes('://www.')
+  ? [serverURL.replace('://www.', '://')]
+  : [serverURL.replace('://', '://www.')]
+
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  serverURL,
+  cors: [serverURL, ...extraOrigins],
+  csrf: [serverURL, ...extraOrigins],
   admin: {
     user: Users.slug,
     meta: {

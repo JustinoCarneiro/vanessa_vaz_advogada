@@ -6,6 +6,10 @@
 > **Regra de dado sensível:** só o *custo/hora interno da empresa* fica fora deste arquivo — no
 > sibling privado `<projeto>-docs-privados/` ou informado na hora da análise. Todo o resto
 > (datas, valor do contrato, comissão, timesheet, esperas) mora aqui, versionado com o projeto.
+>
+> ⚠ **2026-09-02:** projeto entregue em jun/2026 (toques esporádicos depois). Blocos 1–2 por
+> reconstruir; bloco 3 semeado com a estimativa retroativa por proxy de commit. Panorama entre
+> projetos: `onda-starter/historico-projetos/PANORAMA-KPI.md`.
 
 ---
 
@@ -38,11 +42,17 @@
 
 ## 3. Timesheet — uma linha por sessão (Fase 4)
 
+Nunca registrado. A linha `(est. retroativa)` abaixo é a estimativa por proxy de commit
+(sessões separadas por > 2,5 h + 0,75 h/sessão de ramp-up; detalhe por sessão em
+`onda-starter/historico-projetos/estimativas-horas-2026-09-02.md`). Projeto praticamente encerrado
+— se houver nova sessão, registrar uma linha real aqui.
+
 | Data | Fase (0–5) | Horas | Nota |
 |---|---|---|---|
-| `<AAAA-MM-DD>` | `<n>` | `<h>` | `<o que foi feito>` |
+| _(primeira entrada real aqui)_ | | | |
 
-Σ horas por fase: `<preencher no fechamento>`   ·   Σ total: `<__>`
+Σ real registrada: **0 h**
+Σ **(est. retroativa por proxy de commit)**: **~20 h piso · ~25–29 h central** — 51 commits, 9 sessões (quase tudo em jun/2026)
 
 ## 4. Log de espera / impedimento (Fase 4)
 

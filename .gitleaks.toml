@@ -1,0 +1,11 @@
+title = "Vanessa Vaz — gitleaks"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Fixtures de teste e exemplos de ambiente: valores de exemplo, não credenciais reais."
+paths = [
+  '''tests/.*''',
+  '''\.env\.example$''',
+]

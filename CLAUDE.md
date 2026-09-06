@@ -1,3 +1,5 @@
+@AGENTS.md
+
 # Vanessa Vaz Marschallinger — Site Institucional + Blog (MVP Completo)
 Site profissional com blog integrado para advogada de advocacia previdenciária.
 

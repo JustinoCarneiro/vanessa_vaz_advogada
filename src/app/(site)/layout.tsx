@@ -73,9 +73,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-snippet': -1 },
   },
-  other: {
-    'deploy-test': '2026-09-22T00-teste-onda',
-  },
 }
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {

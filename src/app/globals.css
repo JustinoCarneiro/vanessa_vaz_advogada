@@ -32,3 +32,42 @@ body {
   from { transform: scale(1) translateZ(0); }
   to   { transform: scale(1.1) translateZ(0); }
 }
+
+/* Texto dos artigos do blog. O Tailwind (preflight) zera margens, marcadores e tamanhos,
+   então tudo o que o CMS entrega precisa ser estilizado aqui. */
+.prose-vvm > :first-child { margin-top: 0; }
+.prose-vvm p { margin: 0 0 1.25em; }
+.prose-vvm h2,
+.prose-vvm h3,
+.prose-vvm h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-teal-dark);
+}
+.prose-vvm h2 { margin: 2em 0 0.6em; font-size: 1.85em; }
+.prose-vvm h3 { margin: 1.8em 0 0.5em; font-size: 1.5em; }
+.prose-vvm h4 { margin: 1.6em 0 0.5em; font-size: 1.2em; }
+.prose-vvm ul,
+.prose-vvm ol { margin: 0 0 1.25em; padding-inline-start: 1.6em; }
+.prose-vvm ul { list-style: disc; }
+.prose-vvm ol { list-style: decimal; }
+.prose-vvm li { margin-bottom: 0.4em; }
+.prose-vvm li > ul,
+.prose-vvm li > ol { margin: 0.4em 0 0; }
+.prose-vvm blockquote {
+  margin: 1.6em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+  border-inline-start: 3px solid var(--color-teal-mid);
+  color: #3d4a4b;
+  font-style: italic;
+}
+.prose-vvm a { color: var(--color-teal-dark); text-decoration: underline; text-underline-offset: 3px; }
+.prose-vvm a:hover { color: var(--color-teal-hover); }
+.prose-vvm strong { font-weight: 600; }
+.prose-vvm code { padding: 0.1em 0.35em; border-radius: 4px; background: #eef3f2; font-size: 0.9em; }
+.prose-vvm figure { margin: 1.8em 0; }
+.prose-vvm img { display: block; max-width: 100%; height: auto; border-radius: 8px; }
+/* O Lexical embrulha a sublista num <li> próprio: sem isso aparece um marcador vazio. */
+.prose-vvm li:has(> ul:only-child),
+.prose-vvm li:has(> ol:only-child) { list-style: none; margin-bottom: 0; }

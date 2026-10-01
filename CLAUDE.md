@@ -65,3 +65,20 @@ Assets em: `./design/` (tokens.css + DESIGN.md extraídos do manual da marca)
 - Categorias no blog: sim
 - Barra de pesquisa no blog: sim
 - Páginas fixas: Home · Sobre Mim · Sobre o Escritório · Serviços · Blog · Contato
+
+## Extensão de escopo — landing para brasileiros no exterior (2026-09-22)
+
+- Rota `/previdencia-no-exterior`, em grupo `(landing)` com layout próprio.
+- Tráfego de Instagram; mobile-first, sem navegação ou rodapé institucional.
+- Conteúdo estático adaptado da página aprovada `/brasileiros-no-exterior`,
+  com a identidade existente. Exceção acordada à edição via CMS, restrita a esta landing.
+- Único destino de contato: WhatsApp já usado no site; CTA fixo acessível no mobile.
+- SEO/OG próprios; sem novas alegações, formulário ou dependências.
+- Única integração (decisão de 2026-09-30, pedido da cliente/Claudia): Meta Pixel
+  `920153360935262`, só após aceite de cookies de marketing (GDPR/LGPD): banner com
+  Aceitar/Recusar/Gerenciar, `PageView` uma vez por abertura, `Contact` no clique do
+  WhatsApp. Rodapé com Política de Cookies e reabertura das preferências.
+- No celular, retrato e moldura aparecem suavemente ao entrar na tela durante a
+  rolagem; respeitar a preferência por movimento reduzido.
+- História H1.5 em `docs/spec.md`; módulo M08 em `docs/ROADMAP.md`.
+- Revisão visual por Marcos antes da entrega; publicação requer autorização explícita.

@@ -1,0 +1,57 @@
+.banner {
+  position: fixed;
+  z-index: 40;
+  inset: auto 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 18px 20px;
+  background: #fff;
+  color: #24383a;
+  border: 1px solid #cfdcd9;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -12px rgb(0 0 0 / 45%);
+  font-size: 13px;
+  line-height: 1.6;
+}
+/* .banner .title vence o `.page h2` da landing (fonte e tamanho de seção) */
+.banner .title { max-width: none; margin: 0 0 6px; font-family: var(--font-body), sans-serif; font-size: 15px; font-weight: 700; line-height: 1.4; letter-spacing: 0; color: var(--color-teal-dark); }
+.banner .title:focus-visible { outline: 2px solid var(--color-teal-dark); outline-offset: 3px; }
+.text { margin: 0; }
+.text a { color: var(--color-teal-dark); text-decoration: underline; text-underline-offset: 3px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; }
+.button {
+  flex: 1 1 130px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 2px solid var(--color-teal-dark);
+  border-radius: 6px;
+  background: var(--color-teal-dark);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* Recusar tem o mesmo tamanho e peso de Aceitar (recusar tão fácil quanto aceitar). */
+.button:nth-of-type(2) { background: #fff; color: var(--color-teal-dark); }
+.button:hover { background: var(--color-teal-hover); color: #fff; }
+.link {
+  min-height: 44px;
+  padding: 10px 8px;
+  border: 0;
+  background: none;
+  color: var(--color-teal-dark);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.button:focus-visible,
+.link:focus-visible { outline: 3px solid var(--color-teal-dark); outline-offset: 3px; }
+.options { margin: 14px 0 0; padding: 0; border: 0; display: grid; gap: 10px; }
+.legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.option { display: flex; gap: 10px; align-items: flex-start; }
+.option input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--color-teal-dark); }
+.option span { display: grid; }
+.option small { font-size: 12px; color: #4a5c5e; }
+@media (min-width: 768px) { .banner { inset-inline: 24px; padding: 20px 24px; } }

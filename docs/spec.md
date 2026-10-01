@@ -80,6 +80,53 @@ via painel intuitivo.
 
 ---
 
+### H1.5 — Landing de previdência para brasileiros no exterior
+> Como brasileiro residente no exterior que chega pelo Instagram, quero entender
+> como a advogada pode orientar meu caso e falar com ela pelo WhatsApp.
+
+**Critérios de aceite:**
+- Dado que acesso `/previdencia-no-exterior`, quando a página carrega, então vejo
+  a identidade VVM e conteúdo adaptado de `/brasileiros-no-exterior`, sem menu
+  ou rodapé institucional e sem depender do CMS.
+- Dado que leio a página, então encontro acordos internacionais/totalização,
+  contribuições ao INSS, planejamento e manutenção da qualidade de segurado,
+  além da vivência na Europa, comunicação direta e atendimento digital.
+- Dado que aciono qualquer CTA de contato, então a conversa do WhatsApp abre direto
+  (`https://api.whatsapp.com/send/?phone=436704071939&text=…`, o mesmo destino do
+  `wa.me` sem o salto), com a mensagem "Olá, Vanessa! Vim pela página de Previdência
+  no Exterior e gostaria de entender melhor o meu caso." já preenchida, sem formulário
+  intermediário. A página de confirmação "Open app / Continue to WhatsApp Web" é do
+  próprio WhatsApp e não pode ser removida por link https.
+- Dado que uso celular de 320 px ou mais, quando rolo a página, então o CTA
+  permanece acessível, sem rolagem horizontal ou ocultar o final do conteúdo.
+- Dado que acesso pelo celular, quando a página carrega, então vejo o cabeçalho,
+  título, CTA e identificação antes da foto; ao rolar, vejo a foto em destaque e,
+  em seguida, o início da seção "Brasil e exterior".
+- Dado que acesso pelo celular, quando a foto entra na área visível durante a
+  rolagem, então ela e sua moldura aparecem com uma transição suave uma única vez;
+  se prefiro movimento reduzido, aparecem sem animação.
+- Dado que navego por teclado, então o CTA tem foco visível e nome acessível.
+- Dado que compartilho a URL, então título, descrição, canonical e OG identificam
+  esta landing; a imagem de compartilhamento reaproveita o asset aprovado do site.
+- Dado que a cliente revisou o texto (2026-09-30), então a página segue o documento
+  dela: novo título ("Você contribuiu para o INSS no Brasil?…"), seções "Para quem
+  mora fora", "Como funciona a análise" e "O que analisamos", e o botão "Quero saber
+  se meus anos contam" (nome acessível cita o WhatsApp). O dado "atendi brasileiros
+  em mais de 20 países" entrou em 2026-10-01, com o número informado pela cliente.
+- Dado que abro a landing sem ter escolhido, então vejo um banner com Aceitar, Recusar
+  e Gerenciar preferências, e nenhum script ou cookie da Meta é carregado.
+- Dado que aceito os cookies de marketing, então o Meta Pixel `920153360935262`
+  carrega e registra um único `PageView` por abertura da página; nas aberturas
+  seguintes a escolha é lembrada.
+- Dado que recuso, então o pixel nunca carrega; posso mudar a escolha depois pelo
+  link "Preferências de cookies" e conferir a Política de Cookies
+  (`/politica-de-cookies`), ambos no fim da página.
+- Dado que aceitei e aciono qualquer botão do WhatsApp, então o evento padrão
+  `Contact` é enviado antes de abrir o WhatsApp; sem aceite, nenhum
+  evento é enviado e o redirecionamento é imediato.
+- Conteúdo estático é exceção acordada para esta página. Revisão visual por Marcos
+  precede a entrega; autorização de publicação é uma etapa separada.
+
 ## E2 · Blog com CMS
 
 ### H2.1 — Listagem do blog
@@ -108,6 +155,11 @@ via painel intuitivo.
   são confortáveis para leitura (mínimo 16px, line-height ≥ 1.6)
 - Cada artigo deve ter: meta title único · meta description · OG image · URL
   amigável (/blog/slug-do-artigo)
+
+**Critérios de aceite — formatação do texto (2026-09-30):**
+- Dado que a Vanessa formata um artigo no CMS (alinhamento/justificação, recuo, quebra
+  de linha, negrito, itálico, listas, citações, links), então o artigo publicado
+  mostra essa formatação, com espaçamento e tipografia da marca.
 
 ### H2.3 — Publicação de artigo (Vanessa)
 > Como Vanessa, quero publicar um artigo novo pelo painel,

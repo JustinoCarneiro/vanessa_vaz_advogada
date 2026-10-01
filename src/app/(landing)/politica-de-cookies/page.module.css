@@ -1,0 +1,15 @@
+.page { min-height: 100vh; padding-block: 48px 96px; background: var(--color-teal-dark); color: #e9f0ef; }
+.container { width: min(100% - 40px, 720px); margin-inline: auto; }
+.back { display: inline-block; margin-bottom: 28px; color: var(--color-mint); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.page h1,
+.page h2,
+.page h3 { font-family: var(--font-display), Georgia, serif; font-weight: 600; color: #fff; }
+.page h1 { font-size: clamp(34px, 5vw, 48px); line-height: 1.1; }
+.updated { margin-top: 10px; color: var(--color-mint); font-size: 13px; }
+.page h2 { margin-top: 36px; font-size: 26px; line-height: 1.2; }
+.page h3 { margin-top: 22px; font-size: 19px; }
+.page p { margin-top: 12px; font-size: 15px; line-height: 1.8; }
+.page code { padding: 1px 6px; border-radius: 4px; background: rgb(255 255 255 / 12%); font-size: 13px; }
+.inlineButton { padding: 0; border: 0; background: none; color: var(--color-mint); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.back:focus-visible,
+.inlineButton:focus-visible { outline: 2px solid var(--color-mint); outline-offset: 3px; }

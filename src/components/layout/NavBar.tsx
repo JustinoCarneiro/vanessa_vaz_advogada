@@ -26,7 +26,7 @@ export function NavBar() {
       {/* ── Desktop ── */}
       <div className="hidden md:flex items-center justify-between h-[88px] px-14 max-w-[1280px] mx-auto">
         <Link href="/" aria-label="Ir para a página inicial">
-          <Logo variant="branco" height={52} priority />
+          <Logo variant="branco" height={60} priority />
         </Link>
 
         <div className="flex items-center gap-9">

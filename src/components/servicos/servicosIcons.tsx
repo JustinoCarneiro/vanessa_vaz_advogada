@@ -22,6 +22,7 @@ export type IconeSlug =
   | 'check'
   | 'atencao'
   | 'globo'
+  | 'rede'
 
 const props = {
   width: 26,
@@ -162,6 +163,17 @@ export const ICONES_MAP: Record<IconeSlug, React.ReactNode> = {
       <path d="M2 12h20" />
     </svg>
   ),
+  rede: (
+    <svg key="rede" {...props}>
+      <circle cx="12" cy="5" r="2" />
+      <circle cx="5" cy="18" r="2" />
+      <circle cx="19" cy="18" r="2" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M12 7v3" />
+      <path d="M10.5 13.3L6.5 16.5" />
+      <path d="M13.5 13.3l4 3.2" />
+    </svg>
+  ),
 }
 
 export const ICONES_OPTIONS = [
@@ -186,6 +198,7 @@ export const ICONES_OPTIONS = [
   { label: 'Check — Aprovado / Concluído',         value: 'check'      },
   { label: 'Atenção — Urgência / Alerta',          value: 'atencao'    },
   { label: 'Globo — Internacional / Exterior',     value: 'globo'      },
+  { label: 'Rede — Conexão / Digital',             value: 'rede'       },
 ]
 
 export function getIcone(slug: string | null | undefined): React.ReactNode {

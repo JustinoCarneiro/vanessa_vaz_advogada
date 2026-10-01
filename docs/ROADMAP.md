@@ -3,7 +3,7 @@
 ## Contexto
 Site institucional + blog com CMS para advogada previdenciária.
 Stack: Next.js 15.4 (App Router) + Payload CMS 3.x + PostgreSQL (Neon) + Tailwind CSS.
-Deploy: Vercel (projeto `projeto-vanessa`). URL de produção: `https://projeto-vanessa-two.vercel.app`.
+Deploy: Vercel (projeto `vanessa-vaz-advogada`, conta `vanessa-vaz-s-projects`; push na `main` publica). Domínio de produção: `https://vanessavazadv.com.br`. (O alias antigo `projeto-vanessa-two.vercel.app` não existe mais.)
 Uploads de mídia: Vercel Blob (`@payloadcms/storage-vercel-blob`, CDN público).
 Domínio e hospedagem: cliente contrata e paga.
 
@@ -38,6 +38,7 @@ Pesos: Pequeno 1-2d · Médio 3-4d · Grande 5-7d
 | M05 | CMS Payload (coleções Post + Category + Mensagem) | Pequeno | 2d | H2.3, H2.4, H3.2 |
 | M06 | Formulário de contato + envio de email | Pequeno | 1d | H3.1 |
 | M07 | SEO estrutural (meta, sitemap, OG, Schema.org) | Pequeno | 1d | H4.1, H4.2 |
+| M08 | Landing estática de previdência no exterior (extensão de escopo) | Pequeno | — | H1.5 |
 
 **Total de módulos:** 12 dias
 
@@ -408,6 +409,42 @@ CONTACT_EMAIL_TO=vanessavaz8@gmail.com
 
 > Scripts de produção lêem `PLAYWRIGHT_ADMIN_EMAIL` e `PLAYWRIGHT_ADMIN_PASSWORD`
 > do `.env.local`. Nunca commitar essas variáveis.
+
+---
+
+### M08 · Landing de previdência no exterior
+
+**Status:** 🔄 Em andamento
+
+- URL final (decisão da cliente, 2026-10-01): `vanessavazadv.com.br/previdencia-no-exterior`,
+  sem subdomínio (nada a configurar em DNS/Vercel; o canônico vem de `NEXT_PUBLIC_SERVER_URL`).
+- Rota: `/previdencia-no-exterior`, escolhida por cobrir os temas do briefing
+  após Marcos delegar a decisão do nome (2026-09-22).
+- Grupo `(landing)` com fontes e CSS existentes, sem NavBar/Footer do site.
+- Conteúdo aprovado adaptado de `/brasileiros-no-exterior`; estático, sem CMS
+  ou contrato de API novo. Único destino dos CTAs: WhatsApp existente.
+- SEO/OG próprios, imagem de compartilhamento já existente e entrada no sitemap
+  (inclusão coberta por teste funcional antes da alteração).
+- Texto revisado pela cliente aplicado em 2026-09-30 (novas seções e CTA).
+  Meta Pixel + consentimento de cookies implementados (`src/lib/consent.ts`,
+  `src/lib/metaPixel.ts`, `components/landing/Cookie*`, `/politica-de-cookies`).
+  Pendentes: revisão da Política de Cookies pela
+  advogada e validação dos eventos no Gerenciador de Eventos da Meta.
+- Validação: lint, build, Jest e Playwright (isolamento, CTA, SEO, mobile e
+  revelação do retrato na rolagem, com movimento reduzido).
+- Entrega depende de revisão visual; deploy/push de produção não incluído
+  na autorização atual. Não alterar arquivos de outras tarefas.
+
+---
+
+### M09 · Formatação do texto do blog
+
+**Status:** ✅ Código pronto (falta conferir com dados reais)
+
+- `src/lib/lexicalToHtml.ts` passa a preservar alinhamento, recuo, quebra de linha,
+  subscrito/sobrescrito e tabulação; `.prose-vvm` (antes inexistente) em `globals.css`.
+- Sem contrato de API ou schema novo. Tabelas e embeds de YouTube seguem fora
+  do renderizador (premissa do cliente ainda não implementada).
 
 ---
 

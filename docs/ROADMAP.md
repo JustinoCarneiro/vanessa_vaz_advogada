@@ -439,6 +439,13 @@ CONTACT_EMAIL_TO=vanessavaz8@gmail.com
   `PageView` e 6 `Contact` entre 10 e 14/10. Não confirmado evento a evento: os testes no
   iPhone de 13/10 (o painel agrega por hora e há outros eventos no período). A entrega ao
   WhatsApp com a mensagem pronta foi vista no iPhone (Chrome) e no Android (Instagram).
+- Verificação de domínio no Business Manager da Meta (pedido da Claudia, 2026-10-15): a
+  metatag `facebook-domain-verification` fica literal no `<head>` do layout do site
+  (`src/app/(site)/layout.tsx`, valor em `src/lib/metaDomainVerification.ts`), para valer
+  também no `next dev`, onde o metadata vai para o corpo. É o único ponto da landing que toca
+  o layout do institucional. Confirmado em build de produção: uma vez só no `<head>`, para
+  navegador comum, `facebookexternalhit`, `meta-externalagent` e Googlebot, sem alterar as
+  demais metatags.
 - Código do anúncio na mensagem do WhatsApp (pedido da Claudia, 2026-10-15): o início do
   `utm_content` (V01, V02 ou V03) entra entre parênteses depois de "Previdência no Exterior",
   nos três botões. Lógica em `src/lib/whatsapp.ts`; o botão lê a URL no navegador depois de

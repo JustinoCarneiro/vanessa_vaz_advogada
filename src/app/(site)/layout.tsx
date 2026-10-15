@@ -4,6 +4,7 @@ import { NavBar } from '@/components/layout/NavBar'
 import { Footer } from '@/components/layout/Footer'
 import { NavigationProgress } from '@/components/layout/NavigationProgress'
 import '../globals.css'
+import { META_DOMAIN_VERIFICATION } from '@/lib/metaDomainVerification'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -78,6 +79,13 @@ export const metadata: Metadata = {
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${montserrat.variable} ${cormorantGaramond.variable}`}>
+      <head>
+        {/* Verificação do domínio no Business Manager da Meta. A tag fica literal aqui, e não no
+            `metadata`: no `next dev` (e em páginas dinâmicas) o Next manda o metadata no corpo
+            da página, e o verificador da Meta lê o HTML bruto procurando a tag dentro do <head>.
+            Assim ela vale em qualquer renderização. */}
+        <meta name="facebook-domain-verification" content={META_DOMAIN_VERIFICATION} />
+      </head>
       <body className="font-body antialiased">
         <NavigationProgress />
         <NavBar />

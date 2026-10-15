@@ -121,6 +121,12 @@ via painel intuitivo.
 - Dado que recuso, então o pixel nunca carrega; posso mudar a escolha depois pelo
   link "Preferências de cookies" e conferir a Política de Cookies
   (`/politica-de-cookies`), ambos no fim da página.
+- Dado que chego por um anúncio cujo `utm_content` começa com V01, V02 ou V03 (por exemplo,
+  "V03 — INSS ou previdência privada-editao 01"), então todos os botões de WhatsApp, inclusive
+  a barra fixa, abrem a conversa com o código entre parênteses depois de "Previdência no
+  Exterior" (ex.: "…Previdência no Exterior (V03) e gostaria de entender melhor o meu caso.").
+  Sem `utm_content`, ou sem um desses três códigos no início, a mensagem fica como está; o
+  restante do `utm_content` nunca entra na mensagem. O evento `Contact` não muda.
 - Dado que aceitei e aciono qualquer botão do WhatsApp, então o evento padrão
   `Contact` é enviado antes de abrir o WhatsApp; sem aceite, nenhum
   evento é enviado e o redirecionamento é imediato.

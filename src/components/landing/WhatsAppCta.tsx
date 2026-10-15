@@ -1,9 +1,11 @@
 'use client'
 
-import { useRef, type MouseEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
 import { isPixelActive, isPixelReady, trackContact } from '@/lib/metaPixel'
+import { buildWhatsAppUrl, variantFromSearch } from '@/lib/whatsapp'
 
 type WhatsAppCtaProps = {
+  /** Link base (sem código de anúncio), o mesmo que o servidor renderiza. */
   href: string
   className: string
   ariaLabel: string
@@ -26,8 +28,16 @@ function leaveWhenSent(href: string) {
   check()
 }
 
-export default function WhatsAppCta({ href, className, ariaLabel, children }: WhatsAppCtaProps) {
+export default function WhatsAppCta({ href: baseHref, className, ariaLabel, children }: WhatsAppCtaProps) {
   const leaving = useRef(false)
+  const [href, setHref] = useState(baseHref)
+
+  // A página é estática: o utm_content só existe no navegador. Depois de montar (para não
+  // divergir do HTML do servidor), um código V01, V02 ou V03 entra na mensagem do link.
+  useEffect(() => {
+    const code = variantFromSearch(window.location.search)
+    if (code) setHref(buildWhatsAppUrl(code))
+  }, [])
 
   function onClick(event: MouseEvent<HTMLAnchorElement>) {
     if (!isPixelActive()) return // sem consentimento: navegação normal, sem evento

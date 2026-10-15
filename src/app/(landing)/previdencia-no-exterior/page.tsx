@@ -6,21 +6,13 @@ import CookiePreferencesButton from '@/components/landing/CookiePreferencesButto
 import ScrollRevealPhoto from '@/components/landing/ScrollRevealPhoto'
 import WhatsAppCta from '@/components/landing/WhatsAppCta'
 import { getIcone } from '@/components/servicos/servicosIcons'
+import { buildWhatsAppUrl } from '@/lib/whatsapp'
 import styles from './page.module.css'
 
 const title = 'Previdência no exterior | Vanessa Vaz Marschallinger'
 const description =
   'Orientação previdenciária para brasileiros no exterior: aposentadoria, INSS, acordos internacionais e planejamento com atendimento em português e 100% digital.'
-const whatsappMessage =
-  'Olá, Vanessa! Vim pela página de Previdência no Exterior e gostaria de entender melhor o meu caso.'
-// Destino direto: o wa.me só redireciona para api.whatsapp.com/send. Ir direto poupa um salto de rede,
-// e app_absent=0 faz o celular tentar abrir o app na hora. A mensagem chega pré-preenchida.
-const whatsapp = `https://api.whatsapp.com/send/?${new URLSearchParams({
-  phone: '436704071939',
-  text: whatsappMessage,
-  type: 'phone_number',
-  app_absent: '0',
-})}`
+const whatsapp = buildWhatsAppUrl()
 const siteUrl = 'https://www.vanessavazadv.com.br/sobre'
 
 export const metadata: Metadata = {

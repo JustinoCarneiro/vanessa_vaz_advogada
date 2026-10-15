@@ -414,7 +414,7 @@ CONTACT_EMAIL_TO=vanessavaz8@gmail.com
 
 ### M08 · Landing de previdência no exterior
 
-**Status:** 🔄 Em andamento
+**Status:** ✅ Concluído em 2026-10-14
 
 - URL final (decisão da cliente, 2026-10-01): `vanessavazadv.com.br/previdencia-no-exterior`,
   sem subdomínio (nada a configurar em DNS/Vercel; o canônico vem de `NEXT_PUBLIC_SERVER_URL`).
@@ -428,12 +428,35 @@ CONTACT_EMAIL_TO=vanessavaz8@gmail.com
 - Texto revisado pela cliente aplicado em 2026-09-30 (novas seções e CTA).
   Meta Pixel + consentimento de cookies implementados (`src/lib/consent.ts`,
   `src/lib/metaPixel.ts`, `components/landing/Cookie*`, `/politica-de-cookies`).
-  Pendentes: revisão da Política de Cookies pela
-  advogada e validação dos eventos no Gerenciador de Eventos da Meta.
+  Política de Cookies aprovada pela advogada em 2026-10-01.
 - Validação: lint, build, Jest e Playwright (isolamento, CTA, SEO, mobile e
   revelação do retrato na rolagem, com movimento reduzido).
-- Entrega depende de revisão visual; deploy/push de produção não incluído
-  na autorização atual. Não alterar arquivos de outras tarefas.
+- Publicada em produção em 2026-10-01 (commit `26630e1`), com autorização do Marcos.
+  Não alterar arquivos de outras tarefas.
+- Pixel validado pela Claudia em 2026-10-14, no Chrome anônimo com conexão da Áustria:
+  recusar os cookies não envia nada à Meta; aceitar envia `PageView` e `Contact` (200), e o
+  `Contact` sai no clique do WhatsApp mesmo sem enviar a mensagem. O painel mostra 22
+  `PageView` e 6 `Contact` entre 10 e 14/10. Não confirmado evento a evento: os testes no
+  iPhone de 13/10 (o painel agrega por hora e há outros eventos no período). A entrega ao
+  WhatsApp com a mensagem pronta foi vista no iPhone (Chrome) e no Android (Instagram).
+- Código do anúncio na mensagem do WhatsApp (pedido da Claudia, 2026-10-15): o início do
+  `utm_content` (V01, V02 ou V03) entra entre parênteses depois de "Previdência no Exterior",
+  nos três botões. Lógica em `src/lib/whatsapp.ts`; o botão lê a URL no navegador depois de
+  montar, porque a página é estática. Sem registro de código no armazenamento do aparelho.
+- Limitação conhecida (2026-10-07): o Meta Pixel de navegador não carrega com bloqueio de
+  rastreadores. No Firefox do Marcos, `connect.facebook.net/en_US/fbevents.js` foi
+  bloqueado antes de qualquer JavaScript da página, mesmo após "Aceitar": em janela
+  privativa pela Proteção Aprimorada contra Rastreamento do Firefox e, em janela normal,
+  pela extensão Privacy Badger. No Chrome o envio funciona. Confirmado em 2026-10-07: no
+  Firefox em janela normal, com o Privacy Badger desativado para o site, o pixel carrega e
+  envia o `PageView` (200). O código está correto; a alternativa para quem usa bloqueadores
+  ou janela privativa é a Conversions API (envio pelo servidor), opcional e sem decisão.
+- Pendência de baixa prioridade (2026-10-07), decisão do Marcos de adiar: em produção
+  `NEXT_PUBLIC_SERVER_URL` vale `https://vanessavazadv.com.br` (sem www), mas o site é
+  servido em `www` e o endereço sem www redireciona (308). Canônico, `og:url`, sitemap e
+  robots.txt apontam para o endereço que redireciona. Não afeta o pixel nem a landing,
+  só SEO. Correção: trocar a variável no painel da Vercel da conta da Vanessa para
+  `https://www.vanessavazadv.com.br` e refazer o deploy sem cache de build.
 
 ---
 

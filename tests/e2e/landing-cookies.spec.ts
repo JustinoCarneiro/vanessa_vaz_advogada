@@ -265,3 +265,46 @@ for (const [nome, viewport] of [['celular', { width: 390, height: 844 }], ['desk
     })
   }
 }
+
+
+// ── Código do anúncio (utm_content) na mensagem: o clique leva o código e o Contact não muda ──
+const mensagemComCodigo = (codigo: string) =>
+  `Olá, Vanessa! Vim pela página de Previdência no Exterior (${codigo}) e gostaria de entender melhor o meu caso.`
+const utm = (codigo: string) => `?utm_source=instagram&utm_content=${encodeURIComponent(`${codigo} — nome completo do anúncio`)}`
+
+test('com utm_content e sem consentimento: abre o WhatsApp direto, com o código, sem evento', async ({ page }) => {
+  const ordem = await livePixel(page)
+  await page.goto(`${route}${utm('V02')}`)
+  await banner(page).getByRole('button', { name: 'Recusar' }).click()
+  await page.getByRole('link', { name: /WhatsApp/ }).first().click()
+  await expect(page).toHaveURL(whatsappUrl)
+  expect(new URL(page.url()).searchParams.get('text')).toBe(mensagemComCodigo('V02'))
+  expect(ordem).toEqual(['whatsapp'])
+})
+
+test('com utm_content e com consentimento: Contact sai antes de abrir o WhatsApp com o código', async ({ page }) => {
+  const ordem = await livePixel(page)
+  await page.goto(`${route}${utm('V03')}`)
+  await banner(page).getByRole('button', { name: 'Aceitar' }).click()
+  await expect.poll(() => ordem.includes('PageView')).toBe(true)
+  await page.getByRole('link', { name: /WhatsApp/ }).first().click()
+  await expect(page).toHaveURL(whatsappUrl)
+  expect(new URL(page.url()).searchParams.get('text')).toBe(mensagemComCodigo('V03'))
+  expect(ordem).toEqual(['PageView', 'Contact', 'whatsapp'])
+})
+
+for (const indice of [0, 1, 2]) {
+  test(`o botão ${['do herói', 'do fechamento', 'fixo'][indice]} leva o código V01 (celular, com consentimento)`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 })
+    const ordem = await livePixel(page)
+    await page.goto(`${route}${utm('V01')}`)
+    await banner(page).getByRole('button', { name: 'Aceitar' }).click()
+    await expect.poll(() => ordem.includes('PageView')).toBe(true)
+    const botao = page.getByRole('link', { name: /WhatsApp/ }).nth(indice)
+    await botao.scrollIntoViewIfNeeded()
+    await botao.click()
+    await expect(page).toHaveURL(whatsappUrl)
+    expect(new URL(page.url()).searchParams.get('text')).toBe(mensagemComCodigo('V01'))
+    expect(ordem).toEqual(['PageView', 'Contact', 'whatsapp'])
+  })
+}

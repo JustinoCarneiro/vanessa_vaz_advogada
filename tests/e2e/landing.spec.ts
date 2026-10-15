@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, type Page } from '@playwright/test'
 
 const route = '/previdencia-no-exterior'
 const mensagem = 'Olá, Vanessa! Vim pela página de Previdência no Exterior e gostaria de entender melhor o meu caso.'
@@ -69,6 +69,43 @@ test('botões do WhatsApp abrem a conversa direto, com a mensagem pré-preenchid
     await expect(cta).not.toHaveAttribute('target', /.+/) // mesma aba: no celular o sistema entrega ao app
   }
 })
+
+const comCodigo = (codigo: string) =>
+  `Olá, Vanessa! Vim pela página de Previdência no Exterior (${codigo}) e gostaria de entender melhor o meu caso.`
+const textosDosBotoes = async (page: Page) =>
+  Promise.all(
+    (await page.getByRole('link', { name: /WhatsApp/ }).all()).map(async link =>
+      new URL((await link.getAttribute('href'))!).searchParams.get('text')),
+  )
+
+for (const [codigo, utmContent] of [
+  ['V01', 'V01'],
+  ['V02', 'V02 - Aposentadoria no exterior'],
+  ['V03', 'V03 — INSS ou previdência privada-editao 01'],
+] as const) {
+  test(`utm_content ${codigo} entra na mensagem dos três botões de WhatsApp, inclusive o fixo`, async ({ page }) => {
+    await page.goto(`${route}?utm_source=instagram&utm_medium=paid&utm_content=${encodeURIComponent(utmContent)}&fbclid=abc123`)
+    await expect(page.getByRole('link', { name: /WhatsApp/ })).toHaveCount(3) // herói, fechamento e barra fixa
+    await expect.poll(() => textosDosBotoes(page)).toEqual([comCodigo(codigo), comCodigo(codigo), comCodigo(codigo)])
+    // o resto do nome do anúncio não vai para a mensagem
+    expect((await textosDosBotoes(page)).join(' ')).not.toMatch(/INSS ou previd|Aposentadoria no exterior/)
+  })
+}
+
+for (const [descricao, query] of [
+  ['sem utm_content', ''],
+  ['utm_content vazio', '?utm_content='],
+  ['código desconhecido', '?utm_content=V04%20teste'],
+  ['código fora do início', '?utm_content=anuncio%20V01'],
+  ['só outros parâmetros', '?utm_source=instagram&fbclid=abc'],
+] as const) {
+  test(`mensagem atual, sem código: ${descricao}`, async ({ page }) => {
+    await page.goto(`${route}${query}`)
+    // o aviso de cookies só aparece depois da hidratação: garante que o código já teria sido lido
+    await expect(page.getByRole('dialog', { name: /cookies/i })).toBeVisible()
+    expect(await textosDosBotoes(page)).toEqual([mensagem, mensagem, mensagem])
+  })
+}
 
 test('landing tem SEO e compartilhamento próprios', async ({ page }) => {
   await page.goto(route)

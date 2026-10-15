@@ -73,6 +73,8 @@ Assets em: `./design/` (tokens.css + DESIGN.md extraídos do manual da marca)
 - Conteúdo estático adaptado da página aprovada `/brasileiros-no-exterior`,
   com a identidade existente. Exceção acordada à edição via CMS, restrita a esta landing.
 - Único destino de contato: WhatsApp já usado no site; CTA fixo acessível no mobile.
+  A mensagem pré-preenchida leva o código do anúncio (V01, V02 ou V03) quando o `utm_content`
+  da URL começa por ele.
 - SEO/OG próprios; sem novas alegações, formulário ou dependências.
 - Única integração (decisão de 2026-09-30, pedido da cliente/Claudia): Meta Pixel
   `920153360935262`, só após aceite de cookies de marketing (GDPR/LGPD): banner com

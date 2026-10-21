@@ -18,13 +18,13 @@
 | Campo | Valor |
 |---|---|
 | Nome / slug | vanessa-vaz-projeto / `<slug-para-o-arquivo-de-analise>` |
-| Valor do contrato (bruto) | `<R$ ____>` |
+| Valor do contrato (bruto) | **R$ 525,20** — site institucional + blog (MVP de jun/2026), preço baixo deliberado para captar a cliente no início (informado por Marcos, 2026-10-20; antes constava R$ 420). A landing `/previdencia-no-exterior` é aditivo de R$ 400,00 (seção 5) |
 | Moeda | BRL |
-| Canal | `<Workana / contrato direto / indicação / ...>` |
-| Comissão de plataforma % | `<__% ou n/a>` |
-| Taxa de saque % | `<__% ou n/a>` |
+| Canal | Contrato direto |
+| Comissão de plataforma % | n/a (direto) |
+| Taxa de saque % | n/a (direto) |
 | Regime tributário | `<Simples ~6% / MEI fixo / PJ / n/a>` |
-| Valor/hora alvo (referência) | `<R$ ___/h>` |
+| Valor/hora alvo (referência) | ⚠ não era o alvo — preço de captação abaixo do custo/hora real (~R$ 104/h, ver `onda-starter-docs-privados/FINANCEIRO-POR-PROJETO.md`); effective rate do site institucional ~R$ 525,20 ÷ ~25–29h ≈ **R$ 18–21/h** (as horas estimadas são quase todas do MVP de jun/2026; as da landing, set–out/2026, não foram registradas) |
 | Custo/hora interno | **não aqui** — ver sibling privado / informar na análise |
 | Data — aceite da proposta | `<AAAA-MM-DD>` |
 | Data — início do prazo (gatilho contratual) | `<AAAA-MM-DD>` |
@@ -68,7 +68,15 @@ Abrir um episódio sempre que o trabalho **parar por causa externa** (não conta
 
 | Mudança | Data | Peso equivalente | Aditivo faturado |
 |---|---|---|---|
-| `<...>` | `<AAAA-MM-DD>` | `<P/M/G>` | `<R$ __ ou R$ 0>` |
+| M08 — landing `/previdencia-no-exterior` (criação; publicada em 2026-10-01) | 2026-09-22 | P (M08) | **R$ 400,00** (informado por Marcos, 2026-10-20) |
+| Meta Pixel + banner de cookies + Política de Cookies (pedido da cliente/Claudia) | 2026-09-30 | P | não informado — confirmar |
+| Verificação de domínio da Meta (metatag no `<head>`) | 2026-10-15 | P | não informado — confirmar |
+| Código do anúncio (V01/V02/V03) na mensagem do WhatsApp | 2026-10-15 | P | não informado — confirmar |
+| M09 — formatação do texto do blog | 2026-09-30 | P | não informado — confirmar |
+
+Σ aditivo faturado informado: **R$ 400,00** (criação da landing). Total faturado: R$ 525,20 + R$ 400,00 =
+**R$ 925,20**. Os itens "não informado" ficam como pendência até Marcos dizer se foram cobrados ou
+absorvidos (R$ 0 com mudança > 0 dispara o alerta de escopo sem aditivo em `METRICAS-KPI.md`).
 
 ---
 

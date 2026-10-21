@@ -74,7 +74,7 @@ Abrir um episódio sempre que o trabalho **parar por causa externa** (não conta
 | Código do anúncio (V01/V02/V03) na mensagem do WhatsApp | 2026-10-15 | P | incluído nos R$ 225,00 |
 | M09 — formatação do texto do blog | 2026-09-30 | P | R$ 0 — tratado como garantia do site entregue (defeito de formatação), informado à cliente |
 
-Σ aditivo faturado: **R$ 400,00** (criação da landing) + **R$ 225,00** (ajustes, aguardando aceite) =
+Σ aditivo faturado: **R$ 400,00** (criação da landing) + **R$ 225,00** (adicionais, aguardando aceite) =
 **R$ 625,00**. Total com o site: R$ 525,20 + R$ 625,00 = **R$ 1.150,20**. O pacote de R$ 225,00 é
 preço reduzido (valor/hora efetivo do aditivo fica bem abaixo do custo; horas não registradas).
 Atualizar esta seção quando a cliente aceitar ou renegociar.
